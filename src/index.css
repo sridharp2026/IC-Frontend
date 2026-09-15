@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* Design tokens — from the supplied Design System Builder export
+   (Colour.png / Font.png / Button.png). Keep these as the single
+   source of truth; swap values here to re-theme the whole site. */
+@theme {
+  --color-primary: #120a8f; /* brand navy — headings, hero bg, org-chart accents */
+  --color-primary-dark: #0c0763;
+  --color-secondary: #cd0222; /* brand red — primary CTAs, tags */
+  --color-secondary-dark: #a3011b;
+  --color-accent: #00923f; /* green — used sparingly (palette swatch, future use) */
+  --color-surface: #e7effa; /* light lavender-blue section background */
+  --color-muted: #7f7f7f; /* secondary text / secondary button bg */
+  --color-ink: #000000; /* primary text */
+
+  --font-sans: Arial, Helvetica, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typographic scale from Font.png (Hero / H1 / S1 / P1 / P2 / P3) */
+.text-hero {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 76.8px;
+}
+.text-h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52.8px;
+}
+.text-s1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 37.8px;
+}
+.text-p1 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.9px;
+  letter-spacing: -1px;
+}
+.text-p2 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25.9px;
+}
+.text-p3 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.9px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .text-hero {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  .text-h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+/* Buttons — from Button.png */
+.btn-primary {
+  background: var(--color-secondary);
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 46px;
+  padding: 10px 8px;
+  font-size: 16px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e34b62 0%, var(--color-secondary) 55%);
+}
+
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #cd0222;
+  color: #f5f5f5;
+  border-radius: 10px;
+  padding: 9px 22px;
+  font-size: 24px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn--secondary {
+  background: var(--color-muted); /* #7f7f7f */
+}
+.btn--secondary:hover {
+  background: #6a6a6a;
+}
+
+.btn__glow {
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateY(-50%);
+  transition: left 0.35s ease, width 0.35s ease, height 0.35s ease, filter 0.35s ease;
+}
+.btn__glow--left {
+  left: -41px; /* cx -16, r 15 in Default.svg → left edge = cx - r */
+  width: 30px;
+  height: 30px;
+  filter: blur(10px);
+}
+.btn:hover .btn__glow--left {
+  left: -31px; /* cx -12, r 19 in Hover.svg — same left edge, grows inward */
+  width: 38px;
+  height: 38px;
+  filter: blur(15px);
+}
+.btn__glow--right {
+  right: -41px;
+  width: 30px;
+  height: 30px;
+  filter: blur(10px);
+  position: absolute;
+}
+.btn:hover .btn__glow--right {
+  right: -31px;
+  width: 42px;
+  height: 42px;
+  filter: blur(15px);
+}
+
+.btn__text {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+.btn:hover .btn__text {
+  transform: translateX(-5px);
+}
+.btn--no-icon:hover .btn__text {
+  transform: none;
+}
+
+.btn__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  color: #ffffff;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn:hover .btn__icon {
+  transform: translateX(5px);
+}
+
+.btn-secondary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #7f7f7f;
+  color: #f5f5f5;
+  border-radius: 10px;
+  width: 155px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16.88px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: uppercase;
+  padding: 8px 19px;
+  border-radius: 30px;
+  opacity: 1;
+}
+
+/* Variant for dark/brand-colored section backgrounds (e.g. ScaleStats) */
+.pill-badge--light {
+  border-color: #ffffff;
+  color: #ffffff;
+}

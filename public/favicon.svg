@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="#ffffff" stroke="#CD0222" stroke-width="1.5"/>
+  <text x="16" y="14" font-family="Arial, sans-serif" font-size="6.5" font-weight="700" fill="#000000" text-anchor="middle">IITM</text>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="5" font-weight="700" fill="#120A8F" text-anchor="middle">IC</text>
+</svg>
