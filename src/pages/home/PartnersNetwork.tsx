@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  fadeUp,
-  revealProps,
-  staggerContainer,
-  staggerGrid,
-} from "../../lib/motion";
+import { fadeUp, revealProps, staggerContainer, staggerGrid } from "../../lib/motion";
 import { partnerTabs, keyInvestors } from "../../data/site";
 import PillBadge from "../../components/PillBadge";
 
@@ -50,8 +45,7 @@ const LOGO_SIZES: { w: number; h: number }[] = [
 const LOGO_ROW_BREAKS = [0, 8, 17, 26];
 
 export default function PartnersNetwork() {
-  const [active, setActive] =
-    useState<(typeof partnerTabs)[number]>("Key Investors");
+  const [active, setActive] = useState<(typeof partnerTabs)[number]>("Key Investors");
   return (
     <section className="relative overflow-hidden">
       {/* Fixed height (not inset-0) so this doesn't rescale/re-crop when the
@@ -66,18 +60,14 @@ export default function PartnersNetwork() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-20 md:pt-28 text-center">
         <motion.div variants={staggerContainer} {...revealProps}>
           <PillBadge text="Startup Network" />
-          <motion.h2
-            variants={fadeUp}
-            className="text-h1 text-[var(--color-primary)] mb-4"
-          >
+          <motion.h2 variants={fadeUp} className="text-h1 text-[var(--color-primary)] mb-4">
             Our Industry Partners and Incubatees
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)] max-w-[553px] mx-auto mb-10"
+            className="text-p1 text-[var(--color-muted)] max-w-[553px] mx-auto mb-10"
           >
-            Discover our growing community of startups and industrial
-            partners.
+            Discover our growing community of startups and industrial partners.
           </motion.p>
 
           <motion.div
@@ -92,7 +82,7 @@ export default function PartnersNetwork() {
                 className={`px-5 py-2 rounded-full text-center transition-colors ${
                   active === tab
                     ? "font-[Arial] text-[24px] font-bold leading-[32.9px] tracking-[0px] bg-[var(--color-primary)] text-white"
-                    : "font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)] hover:text-[var(--color-primary)]"
+                    : "text-p1 text-[var(--color-muted)] hover:text-[var(--color-primary)]"
                 }`}
               >
                 {tab}
@@ -153,12 +143,10 @@ export default function PartnersNetwork() {
           animate={{ opacity: 1 }}
           className="relative max-w-lg mx-auto px-6 pb-20 md:pb-28 text-center"
         >
-          <h3 className="text-s1 text-[var(--color-primary)] mb-3">
-            Coming soon
-          </h3>
+          <h3 className="text-s1 text-[var(--color-primary)] mb-3">Coming soon</h3>
           <p className="text-p2 text-[var(--color-muted)]">
-            This page hasn&rsquo;t been designed yet — it&rsquo;s wired up and
-            ready for its real content and layout.
+            This page hasn&rsquo;t been designed yet — it&rsquo;s wired up and ready for its real
+            content and layout.
           </p>
         </motion.div>
       )}

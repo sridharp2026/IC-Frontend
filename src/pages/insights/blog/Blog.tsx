@@ -51,15 +51,21 @@ export default function Blog() {
           >
             <motion.h1
               variants={fadeUp}
-              className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
+              className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
             >
-              Ideas, Insights & Stories<br />That Matter
+              Ideas, Insights & Stories
+              <br />
+              That Matter
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
+              className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
             >
-              Explore expert perspectives, industry trends, innovative ideas, and the latest<br />updates shaping technology and business. Discover thoughtful insights designed<br />to inform, inspire, and keep you ahead of what’s next.
+              Explore expert perspectives, industry trends, innovative ideas, and the latest
+              <br />
+              updates shaping technology and business. Discover thoughtful insights designed
+              <br />
+              to inform, inspire, and keep you ahead of what’s next.
             </motion.p>
           </motion.div>
         </div>

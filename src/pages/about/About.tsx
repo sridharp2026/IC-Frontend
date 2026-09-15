@@ -53,11 +53,13 @@ export default function About() {
       <Navbar />
       <main className="flex-1 px-6">
         <div className="text-center max-w-7xl mx-auto pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
-            Driven by Innovation, <br />Built for Impact
+          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
+            Driven by Innovation, <br />
+            Built for Impact
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            IITM Incubation Cell gives ambitious founders access to the talent, sophisticated technologies, and investment needed at every stage of the journey.
+          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
+            IITM Incubation Cell gives ambitious founders access to the talent, sophisticated
+            technologies, and investment needed at every stage of the journey.
           </p>
         </div>
 
@@ -84,11 +86,8 @@ export default function About() {
                 <p className="font-[Arial] text-[18px] font-normal leading-[25px] tracking-[0px] align-middle mb-4 max-w-[158px] text-white/80">
                   A growing portfolio of ambitious ventures.
                 </p>
-                <NumberFlow
-                  value="500+"
-                  className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase"
-                />
-                <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle capitalize text-white/70">
+                <NumberFlow value="500+" className="text-s1 align-middle uppercase" />
+                <p className="text-eyebrow align-middle capitalize text-white/70">
                   Startups Incubated
                 </p>
               </div>
@@ -98,11 +97,9 @@ export default function About() {
                 </p>
                 <NumberFlow
                   value="13+ YEARS"
-                  className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)]"
+                  className="text-s1 align-middle uppercase text-[var(--color-primary)]"
                 />
-                <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle">
-                  Of Enabling Innovation
-                </p>
+                <p className="text-eyebrow align-middle">Of Enabling Innovation</p>
               </div>
             </div>
           </div>
@@ -118,7 +115,7 @@ export default function About() {
 
           <div className="relative text-center mb-16 md:mb-20">
             <PillBadge text="Our Journey" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)]">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)]">
               Milestones That Moved Us Forward
             </h2>
           </div>
@@ -142,15 +139,13 @@ export default function About() {
                     />
                     <div
                       className={
-                        isLeft
-                          ? "col-start-1 text-right pr-2"
-                          : "col-start-2 text-left pl-2"
+                        isLeft ? "col-start-1 text-right pr-2" : "col-start-2 text-left pl-2"
                       }
                     >
                       <div className="font-[Arial] text-[44px] font-bold leading-[54px] tracking-[0px] align-middle text-[var(--color-secondary)] mb-1">
                         {milestone.year}
                       </div>
-                      <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+                      <p className="text-p1 align-middle text-[var(--color-muted)]">
                         {milestone.description}
                       </p>
                     </div>
@@ -173,25 +168,23 @@ export default function About() {
 
             <div>
               <PillBadge text="About Us" animate={false} />
-              <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-6">
+              <h2 className="text-h1-tight align-middle text-[var(--color-primary)] mb-6">
                 Where Ambition Finds Momentum
               </h2>
               <div className="space-y-4">
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]">
-                  Founded in 2013 within the IIT Madras Research Park in
-                  Chennai, the IIT Madras Incubation Cell (IITMIC) has been
-                  set up with an aim of converting innovative and disruptive
-                  technology ideas into successful startups. An initiative
-                  from IIT Madras&rsquo; research and entrepreneurial
-                  community, the IITMIC comprises students, faculty members,
-                  researchers, alumni as well as independent entrepreneurs.
+                <p className="text-p1 align-middle text-justify text-[var(--color-muted)]">
+                  Founded in 2013 within the IIT Madras Research Park in Chennai, the IIT Madras
+                  Incubation Cell (IITMIC) has been set up with an aim of converting innovative and
+                  disruptive technology ideas into successful startups. An initiative from IIT
+                  Madras&rsquo; research and entrepreneurial community, the IITMIC comprises
+                  students, faculty members, researchers, alumni as well as independent
+                  entrepreneurs.
                 </p>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]">
-                  Being a technology business incubator, the IITMIC offers
-                  mentorship, infrastructure, industrial connections and
-                  investment opportunities to the startups. With time, the
-                  IITMIC has grown into one of the crucial elements of one of
-                  India&rsquo;s most active deep-tech startup communities.
+                <p className="text-p1 align-middle text-justify text-[var(--color-muted)]">
+                  Being a technology business incubator, the IITMIC offers mentorship,
+                  infrastructure, industrial connections and investment opportunities to the
+                  startups. With time, the IITMIC has grown into one of the crucial elements of one
+                  of India&rsquo;s most active deep-tech startup communities.
                 </p>
               </div>
             </div>
@@ -209,12 +202,12 @@ export default function About() {
                   className="text-[var(--color-secondary)] transition-colors duration-300 group-hover:text-white"
                 />
               </div>
-              <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+              <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                 Our Vision
               </h3>
-              <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                To advance technology-led entrepreneurship and build ventures
-                that contribute to economic, societal and global progress.
+              <p className="text-p1 align-middle text-[var(--color-muted)]">
+                To advance technology-led entrepreneurship and build ventures that contribute to
+                economic, societal and global progress.
               </p>
             </motion.div>
 
@@ -229,13 +222,12 @@ export default function About() {
                   className="text-[var(--color-secondary)] transition-colors duration-300 group-hover:text-white"
                 />
               </div>
-              <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+              <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                 Our Mission
               </h3>
-              <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                To translate innovation and research into impactful
-                enterprises by connecting talent, technology, industry,
-                infrastructure and investment.
+              <p className="text-p1 align-middle text-[var(--color-muted)]">
+                To translate innovation and research into impactful enterprises by connecting
+                talent, technology, industry, infrastructure and investment.
               </p>
             </motion.div>
           </div>
@@ -251,10 +243,10 @@ export default function About() {
 
           <div className="relative text-center mb-16">
             <PillBadge text="Values" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               Our Core Values
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
               The advantage of partnering with IITM Incubation Cell.
             </p>
           </div>
@@ -275,10 +267,10 @@ export default function About() {
                       className="text-[var(--color-primary)] transition-colors duration-300 group-hover:text-white"
                     />
                   </div>
-                  <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+                  <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                     {value.title}
                   </h3>
-                  <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+                  <p className="text-p1 align-middle text-[var(--color-muted)]">
                     {value.description}
                   </p>
                 </motion.div>
@@ -290,10 +282,10 @@ export default function About() {
         <section className="max-w-7xl mx-auto pb-20 md:pb-28">
           <div className="text-center mb-10">
             <PillBadge text="Our Team" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               Meet Our Team
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
               The artistry and intelligence behind every project.
             </p>
           </div>
@@ -337,7 +329,7 @@ export default function About() {
                     <h3 className="font-[Arial] text-[24px] font-bold leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-primary)] uppercase mb-1">
                       {member.name}
                     </h3>
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+                    <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
                       {member.role}
                     </p>
                   </div>
@@ -354,13 +346,12 @@ export default function About() {
         <section className="max-w-7xl mx-auto pb-20 md:pb-28">
           <div className="text-center mb-14">
             <PillBadge text="Ecosystem" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               A Multi-Sector Innovation Hub
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] max-w-[820px] mx-auto">
-              IITM has nurtured several specialized incubators and student
-              bodies dedicated to specific sectors and stages of the
-              entrepreneurial journey.
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)] max-w-[820px] mx-auto">
+              IITM has nurtured several specialized incubators and student bodies dedicated to
+              specific sectors and stages of the entrepreneurial journey.
             </p>
           </div>
 
@@ -381,10 +372,10 @@ export default function About() {
                     />
                   </div>
                   <div>
-                    <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] mb-1">
+                    <h3 className="text-s1 align-middle text-[var(--color-primary)] mb-1">
                       {partner.title}
                     </h3>
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-justify align-middle text-[var(--color-muted)]">
+                    <p className="text-p1 text-justify align-middle text-[var(--color-muted)]">
                       {partner.description}
                     </p>
                   </div>

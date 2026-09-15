@@ -36,12 +36,10 @@ export default function InsightCard({
         />
       </div>
       <div>
-        <span className="inline-block bg-[var(--color-surface)] text-[var(--color-primary)] font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-3">
+        <span className="inline-block bg-[var(--color-surface)] text-[var(--color-primary)] text-p1 align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-3">
           {tag}
         </span>
-        <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle uppercase text-[var(--color-muted)] mb-1">
-          {date}
-        </p>
+        <p className="text-eyebrow align-middle uppercase text-[var(--color-muted)] mb-1">{date}</p>
         <h3 className="font-[Arial] text-[24px] mt-2 font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase group-hover:text-[var(--color-secondary)] transition-colors">
           {title}
         </h3>

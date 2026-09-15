@@ -23,13 +23,12 @@ import {
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import NumberFlow from "../../components/NumberFlow";
-import { JOBS, ACCENT_CLASSES } from "./RecommendedJobs";
+import { JOBS, ACCENT_CLASSES } from "../../data/jobs";
 import { jobDetails } from "../../data/jobDetails";
 
 const inputClass =
-  "w-full h-[48px] rounded-lg border border-[#D1D5DB] pt-[10px] pr-[12px] pb-[9px] pl-[12px] font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-[var(--color-ink)] placeholder:text-[#9CA3AF] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]";
-const labelClass =
-  "block mb-2 font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-[var(--color-ink)]";
+  "w-full h-[48px] rounded-lg border border-[#D1D5DB] pt-[10px] pr-[12px] pb-[9px] pl-[12px] text-p2-tight text-[var(--color-ink)] placeholder:text-[#9CA3AF] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]";
+const labelClass = "block mb-2 text-p2-tight text-[var(--color-ink)]";
 
 export default function JobDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -126,12 +125,10 @@ export default function JobDetail() {
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
-          
-
           <div className="flex items-center justify-between mb-8">
             <nav
               aria-label="Breadcrumb"
-              className="flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]"
+              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)]"
             >
               <Link to="/careers" className="hover:text-[var(--color-primary)]">
                 Careers
@@ -149,20 +146,20 @@ export default function JobDetail() {
             </Link>
           </div>
 
-          <h1 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+          <h1 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
             {job.title}
           </h1>
 
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3 mb-8">
-            <span className="inline-flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+            <span className="inline-flex items-center gap-1.5 text-p1 align-middle text-[var(--color-muted)]">
               <Network size={16} className={accent.icon} />
               {job.category}
             </span>
-            <span className="inline-flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+            <span className="inline-flex items-center gap-1.5 text-p1 align-middle text-[var(--color-muted)]">
               <MapPin size={16} className={accent.icon} />
               {job.location}
             </span>
-            <span className="inline-flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+            <span className="inline-flex items-center gap-1.5 text-p1 align-middle text-[var(--color-muted)]">
               <Briefcase size={16} className={accent.icon} />
               {job.type}
             </span>
@@ -177,10 +174,10 @@ export default function JobDetail() {
                     <Icon size={18} />
                   </span>
                   <div className="min-w-0">
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-secondary)] truncate">
+                    <p className="text-p1 align-middle text-[var(--color-secondary)] truncate">
                       {/\d/.test(stat.value) ? <NumberFlow value={stat.value} /> : stat.value}
                     </p>
-                    <p className="font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] align-middle text-[var(--color-muted)]">
+                    <p className="text-p2-tight align-middle text-[var(--color-muted)]">
                       {stat.label}
                     </p>
                   </div>
@@ -191,21 +188,18 @@ export default function JobDetail() {
 
           <div className="grid lg:grid-cols-[1fr_470px] gap-8 lg:gap-10">
             <div>
-              <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+              <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
                 About the Role
               </h2>
               <div className="space-y-5 mb-10">
                 {detail.aboutParagraphs.map((p, i) => (
-                  <p
-                    key={i}
-                    className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]"
-                  >
+                  <p key={i} className="text-p1 text-[var(--color-muted)]">
                     {p}
                   </p>
                 ))}
               </div>
 
-              <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+              <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
                 Key Responsibilities
               </h2>
               <ul className="space-y-3 mb-10">
@@ -214,14 +208,12 @@ export default function JobDetail() {
                     <span className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[var(--color-primary)] flex items-center justify-center">
                       <Check size={13} strokeWidth={3} className="text-white" />
                     </span>
-                    <span className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                      {item}
-                    </span>
+                    <span className="text-p1 align-middle text-[var(--color-muted)]">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+              <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
                 Qualifications
               </h2>
               <ul className="space-y-3">
@@ -230,16 +222,14 @@ export default function JobDetail() {
                     <span className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[var(--color-primary)] flex items-center justify-center">
                       <Check size={13} strokeWidth={3} className="text-white" />
                     </span>
-                    <span className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                      {item}
-                    </span>
+                    <span className="text-p1 align-middle text-[var(--color-muted)]">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="rounded-2xl border border-[#E5E7EB] p-6 md:p-8 h-fit">
-              <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-1">
+              <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-1">
                 Apply Now
               </h2>
               <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-muted)] mb-6">
@@ -360,14 +350,14 @@ export default function JobDetail() {
           </div>
 
           <div className="mt-10">
-            <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+            <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
               Skills (Preferred)
             </h2>
             <div className="flex flex-wrap gap-3">
               {detail.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="inline-flex items-center rounded-lg bg-[var(--color-secondary)] px-4 py-1.5 font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] align-middle text-white"
+                  className="inline-flex items-center rounded-lg bg-[var(--color-secondary)] px-4 py-1.5 text-p2-tight align-middle text-white"
                 >
                   {skill}
                 </span>
@@ -376,7 +366,7 @@ export default function JobDetail() {
           </div>
 
           <div className="mt-10">
-            <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-6">
+            <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-6">
               Similar Jobs
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -392,19 +382,19 @@ export default function JobDetail() {
                     <span className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center bg-[#EFF6FF] text-[var(--color-primary)] mb-4">
                       <Icon size={20} />
                     </span>
-                    <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-1">
+                    <h3 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-1">
                       {similarJob.title}
                     </h3>
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] mb-4">
+                    <p className="text-p1 align-middle text-[var(--color-muted)] mb-4">
                       {similarJob.company}
                     </p>
                     <div className="border-t border-[#F3F4F6] pt-4 mt-auto flex items-center justify-between gap-3">
                       <div className="space-y-2 min-w-0">
-                        <span className="flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] truncate">
+                        <span className="flex items-center gap-1.5 text-p1 align-middle text-[var(--color-muted)] truncate">
                           <MapPin size={16} className="shrink-0 text-[var(--color-muted)]" />
                           {similarJob.location}
                         </span>
-                        <span className="flex items-center gap-1.5 font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] align-middle text-[var(--color-muted)] truncate">
+                        <span className="flex items-center gap-1.5 text-p2-tight align-middle text-[var(--color-muted)] truncate">
                           <IndianRupee size={16} className="shrink-0 text-[var(--color-muted)]" />
                           {similarJob.type}
                         </span>

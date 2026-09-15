@@ -4,7 +4,6 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { newsFeed } from "../../../data/site";
 import { newsletterDetails } from "../../../data/newsletterDetails";
-import PillBadge from "../../../components/PillBadge";
 
 export default function NewsletterDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -50,7 +49,7 @@ export default function NewsletterDetail() {
           <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
             <nav
               aria-label="Breadcrumb"
-              className="flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]"
+              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)]"
             >
               <Link to="/insights" className="hover:text-[var(--color-primary)]">
                 Insight
@@ -62,7 +61,7 @@ export default function NewsletterDetail() {
             <button
               type="button"
               onClick={handleBack}
-              className="flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-primary)] hover:underline"
+              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-primary)] hover:underline"
             >
               <ArrowLeft size={20} /> Back
             </button>
@@ -71,15 +70,11 @@ export default function NewsletterDetail() {
           <span className="inline-block bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] font-[Arial] text-[16px] font-medium px-4 py-2 rounded-[6px] mb-4">
             Newsletter
           </span>
-          <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] uppercase text-[var(--color-primary)] mb-3">
-            {item.date}
-          </p>
+          <p className="text-eyebrow uppercase text-[var(--color-primary)] mb-3">{item.date}</p>
           <h1 className="font-[Arial] text-[36px] md:text-[44px] font-bold leading-[110%] tracking-[0px] text-[var(--color-primary)] mb-5">
             {headline}
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] mb-10">
-            {item.description}
-          </p>
+          <p className="text-p1 align-middle text-[var(--color-muted)] mb-10">{item.description}</p>
 
           <img
             src={`/images/news/${detail?.bannerImage ?? item.image}`}
@@ -90,10 +85,7 @@ export default function NewsletterDetail() {
           {bodyParagraphs.length > 0 && (
             <div className="space-y-5 mb-10">
               {bodyParagraphs.map((p, i) => (
-                <p
-                  key={i}
-                  className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]"
-                >
+                <p key={i} className="text-p1 align-middle text-justify text-[var(--color-muted)]">
                   {p}
                 </p>
               ))}
@@ -102,14 +94,12 @@ export default function NewsletterDetail() {
 
           {detail?.quote && (
             <div className="flex gap-4 max-w-[1228px] w-full mx-auto border-l-4 border-[var(--color-primary)] bg-[#F0F7FF] rounded-r-lg p-5 mb-10">
-                <span className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)]">
-                  “
-                </span>
+              <span className="text-s1 uppercase text-[var(--color-primary)]">“</span>
               <div>
                 <p className="font-[Arial] text-[16px] font-normal leading-[25.89px] tracking-[-0.01em] align-middle text-[var(--color-primary)] mb-3">
                   “{detail.quote.text}”
                 </p>
-                <p className="font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] align-middle text-[var(--color-primary)]">
+                <p className="text-p2-tight align-middle text-[var(--color-primary)]">
                   — {detail.quote.author}
                 </p>
               </div>

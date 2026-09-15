@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
 import { aboutParagraphs } from "../../data/site";
 import CustomButton from "../../components/CustomButton";
@@ -13,16 +11,9 @@ export default function About() {
       className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 grid md:grid-cols-[30%_70%] gap-12 items-start overflow-hidden md:bg-[url('/images/aboutus-bg.png')] bg-cover bg-center bg-no-repeat"
     >
       <div className="hidden md:block" aria-hidden="true" />
-      <motion.div
-        variants={staggerContainer}
-        {...revealProps}
-        className="relative max-w-[810px]"
-      >
+      <motion.div variants={staggerContainer} {...revealProps} className="relative max-w-[810px]">
         <PillBadge text="About Us" />
-        <motion.h2
-          variants={fadeUp}
-          className="text-h1 text-[var(--color-primary)] mb-6"
-        >
+        <motion.h2 variants={fadeUp} className="text-h1 text-[var(--color-primary)] mb-6">
           Making India the Epicenter of Frontier Innovation
         </motion.h2>
         <motion.div variants={fadeUp} className="space-y-4">

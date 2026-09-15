@@ -52,15 +52,16 @@ export default function Newsletter() {
           >
             <motion.h1
               variants={fadeUp}
-              className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
+              className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
             >
               What’s New. What’s Next.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
+              className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
             >
-              A curated newsletter featuring fresh insights, breakthrough ideas, and <br />important updates all in one place.
+              A curated newsletter featuring fresh insights, breakthrough ideas, and <br />
+              important updates all in one place.
             </motion.p>
           </motion.div>
         </div>

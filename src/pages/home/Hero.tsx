@@ -38,9 +38,8 @@ export default function Hero() {
                 variants={fadeUp}
                 className="text-p1 text-white max-w-xl md:max-w-[673px] mt-6"
               >
-                We empower India's ambitious founders to go from prototype to
-                global markets. Get access to the IIT Madras Deep-tech startup
-                ecosystem to move your ideas faster.
+                We empower India's ambitious founders to go from prototype to global markets. Get
+                access to the IIT Madras Deep-tech startup ecosystem to move your ideas faster.
               </motion.p>
               <motion.div variants={fadeUp} className="mt-8 md:max-w-[928px]">
                 <CustomButton label="Discover Our Impact" />
@@ -64,9 +63,7 @@ export default function Hero() {
                 <div className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
                   <NumberFlow value={s.value} />
                 </div>
-                <div className="text-p1 text-[var(--color-muted)] mt-1">
-                  {s.label}
-                </div>
+                <div className="text-p1 text-[var(--color-muted)] mt-1">{s.label}</div>
               </motion.div>
             ))}
           </motion.div>

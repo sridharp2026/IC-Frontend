@@ -1,16 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Brain,
-  Satellite,
-  Zap,
-  Leaf,
-  HeartPulse,
-  Bot,
-  Cpu,
-  Sprout,
-  ArrowRight,
-} from "lucide-react";
+import { Brain, Satellite, Zap, Leaf, HeartPulse, Bot, Cpu, Sprout } from "lucide-react";
 import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
 import { disciplines } from "../../data/site";
 import CustomButton from "../../components/CustomButton";
@@ -37,22 +26,17 @@ export default function Disciplines() {
       >
         <div>
           <PillBadge text="Impact" />
-          <motion.h2
-            variants={fadeUp}
-            className="text-h1 text-[var(--color-primary)]"
-          >
+          <motion.h2 variants={fadeUp} className="text-h1 text-[var(--color-primary)]">
             Built Across Disciplines Focused on Real-World Impact
           </motion.h2>
         </div>
         <motion.p
           variants={fadeUp}
           className="text-p1 text-[var(--color-muted)] text-justify md:pt-16"
-          style={{ letterSpacing: 0 }}
         >
-          From mission-critical enterprise systems to AI-powered digital
-          transformation, we engineer technologies that simplify complexity,
-          accelerate innovation, and deliver real-world impact across
-          industries.
+          From mission-critical enterprise systems to AI-powered digital transformation, we engineer
+          technologies that simplify complexity, accelerate innovation, and deliver real-world
+          impact across industries.
         </motion.p>
       </motion.div>
 
@@ -78,10 +62,7 @@ export default function Disciplines() {
             </motion.div>
           );
         })}
-        <motion.div
-          variants={fadeUp}
-          className="flex items-center justify-center p-6 bg-white"
-        >
+        <motion.div variants={fadeUp} className="flex items-center justify-center p-6 bg-white">
           <CustomButton href="/impact" label="Explore Impact" />
         </motion.div>
       </motion.div>

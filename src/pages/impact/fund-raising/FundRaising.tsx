@@ -8,7 +8,14 @@ type FundingStatus = "ongoing" | "closed";
 
 const STATUS_STYLES: Record<
   FundingStatus,
-  { label: string; border: string; text: string; badgeBg: string; badgeText: string; badgeBorder: string }
+  {
+    label: string;
+    border: string;
+    text: string;
+    badgeBg: string;
+    badgeText: string;
+    badgeBorder: string;
+  }
 > = {
   ongoing: {
     label: "Ongoing Funding",
@@ -105,33 +112,27 @@ function TickerCard({ entry }: { entry: TickerEntry }) {
       className={`flex h-[342px] flex-col gap-[22px] rounded-[1.92px] border-[1.5px] ${style.border} px-[20px] py-[20px]`}
     >
       <div className="flex items-center justify-between border-b border-[#E5E7EB] pb-3">
-        <h3 className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-primary)]">
-          {style.label}
-        </h3>
-        <span className="flex items-center gap-1 font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle uppercase text-[var(--color-muted)]">
+        <h3 className="text-p1 align-middle text-[var(--color-primary)]">{style.label}</h3>
+        <span className="flex items-center gap-1 text-eyebrow align-middle uppercase text-[var(--color-muted)]">
           NEXT <ArrowRight size={14} />
         </span>
       </div>
       <div className="flex items-start justify-between">
-        <span className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-          {entry.date}
-        </span>
+        <span className="text-p1 align-middle text-[var(--color-muted)]">{entry.date}</span>
         <div className="text-right">
-          <div className={`font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-right align-middle ${style.text}`}>
+          <div className={`text-h1-tight text-right align-middle ${style.text}`}>
             {entry.amount}
           </div>
-          <div className="font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-right align-middle text-[var(--color-muted)]">
+          <div className="text-p2-tight text-right align-middle text-[var(--color-muted)]">
             {entry.caption}
           </div>
         </div>
       </div>
       <div>
-        <h4 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-2">
+        <h4 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-2">
           {entry.title}
         </h4>
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-          {entry.description}
-        </p>
+        <p className="text-p1 align-middle text-[var(--color-muted)]">{entry.description}</p>
       </div>
     </motion.div>
   );
@@ -157,18 +158,14 @@ function SpotlightCard({
           className="absolute inset-0 h-full w-full object-cover"
         />
         <span
-          className={`absolute top-4 right-4 rounded-full border ${style.badgeBorder} ${style.badgeBg} ${style.badgeText} px-4 py-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle`}
+          className={`absolute top-4 right-4 rounded-full border ${style.badgeBorder} ${style.badgeBg} ${style.badgeText} px-4 py-1.5 text-p1 align-middle`}
         >
           {style.label}
         </span>
       </div>
       <div className="flex-1 flex flex-col bg-[var(--color-primary)] p-6">
-        <h4 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-white mb-2">
-          {spotlight.title}
-        </h4>
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-white/80">
-          {spotlight.description}
-        </p>
+        <h4 className="text-s1 align-middle uppercase text-white mb-2">{spotlight.title}</h4>
+        <p className="text-p1 align-middle text-white/80">{spotlight.description}</p>
       </div>
     </motion.div>
   );
@@ -186,17 +183,18 @@ export default function FundRaising() {
         >
           <motion.h1
             variants={fadeUp}
-            className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
+            className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
           >
             Fueling Deep-Tech <br />
             Innovation
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
+            className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
           >
             Partner with India's leading deep-tech incubator to scale transformative <br />
-            technologies. Your investment directly accelerates breakthrough research from lab to market.
+            technologies. Your investment directly accelerates breakthrough research from lab to
+            market.
           </motion.p>
         </motion.div>
 

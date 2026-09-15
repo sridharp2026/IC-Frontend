@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import PillBadge from "../../components/PillBadge";
 import ProgramCard from "../../components/ProgramCard";
 import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
@@ -19,7 +17,7 @@ export default function Programs() {
           <PillBadge text="Programs" />
           <motion.h2
             variants={fadeUp}
-            className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)]"
+            className="text-h1-tight align-middle text-[var(--color-primary)]"
           >
             Ongoing Programs &amp; Initiatives
           </motion.h2>

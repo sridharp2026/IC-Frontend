@@ -20,11 +20,7 @@ export default function Footer() {
     <footer className="relative">
       <div className="mt-[65px] bg-[var(--color-primary)] text-white pt-20 pb-6 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={fadeUp}
-            {...revealProps}
-            className="relative pb-[55px]"
-          >
+          <motion.div variants={fadeUp} {...revealProps} className="relative pb-[55px]">
             <div className="max-w-[716px]">
               <h2 className="font-[Arial] text-[44px] font-bold leading-[1.3] tracking-[0px] text-white">
                 Sign up to follow.
@@ -40,33 +36,20 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="Your Email"
-                className="h-16 bg-[#212121]/[0.08] rounded-lg px-4 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-ink)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30"
+                className="h-16 bg-[#212121]/[0.08] rounded-lg px-4 text-p1 text-[var(--color-ink)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30"
               />
               <button type="submit" className="btn h-[65px] justify-center">
-                <span
-                  className="btn__glow btn__glow--left"
-                  aria-hidden="true"
-                />
-                <span
-                  className="btn__glow btn__glow--right"
-                  aria-hidden="true"
-                />
+                <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                <span className="btn__glow btn__glow--right" aria-hidden="true" />
                 <span className="btn__text">Sign Up</span>
-                <ArrowUpRight
-                  size={18}
-                  strokeWidth={1.8}
-                  className="btn__icon"
-                />
+                <ArrowUpRight size={18} strokeWidth={1.8} className="btn__icon" />
               </button>
             </form>
           </motion.div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8">
             <div className="flex items-center gap-3">
-              <Link
-                to="/"
-                className="block w-[126px] h-[126px] overflow-hidden"
-              >
+              <Link to="/" className="block w-[126px] h-[126px] overflow-hidden">
                 <img
                   src="/images/IITM-Incubation-Cell.png"
                   alt="IITM Incubation Cell"
@@ -79,7 +62,7 @@ export default function Footer() {
                 <Link
                   key={l.label}
                   to={l.to}
-                  className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle capitalize text-white/80 hover:text-white transition-colors"
+                  className="text-eyebrow align-middle capitalize text-white/80 hover:text-white transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -89,16 +72,14 @@ export default function Footer() {
           <div
             className="w-full h-7 rounded-[24px] p-px -mb-[30px]"
             style={{
-              background:
-                "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 55%)",
+              background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 55%)",
             }}
           >
             <div className="w-full h-full rounded-[24px] bg-[var(--color-primary)]" />
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 px-4 text-sm text-white">
             <p className="font-[Arial] text-[18px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle">
-              &copy; {new Date().getFullYear()} IITM Incubation Cell. Deep-Tech
-              Forward.
+              &copy; {new Date().getFullYear()} IITM Incubation Cell. Deep-Tech Forward.
             </p>
             <div className="flex items-center gap-6 font-[Arial] text-[18px] font-normal text-white/80 leading-[32.9px] tracking-[0px] text-center align-middle">
               <Link to="/privacy" className="hover:text-white transition-colors">
@@ -107,29 +88,24 @@ export default function Footer() {
               <Link to="/terms" className="hover:text-white transition-colors">
                 Terms
               </Link>
-              <Link
-                to="/accessibility"
-                className="hover:text-white transition-colors"
-              >
+              <Link to="/accessibility" className="hover:text-white transition-colors">
                 Accessibility
               </Link>
             </div>
             <div className="flex items-center gap-3">
-              {(["LinkedIn", "Twitter", "Instagram", "Facebook"] as const).map(
-                (label) => {
-                  const Icon = socialIcons[label];
-                  return (
-                    <a
-                      key={label}
-                      href="#"
-                      aria-label={label}
-                      className="w-8 h-8 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                    >
-                      <Icon size={15} />
-                    </a>
-                  );
-                },
-              )}
+              {(["LinkedIn", "Twitter", "Instagram", "Facebook"] as const).map((label) => {
+                const Icon = socialIcons[label];
+                return (
+                  <a
+                    key={label}
+                    href="#"
+                    aria-label={label}
+                    className="w-8 h-8 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  >
+                    <Icon size={15} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

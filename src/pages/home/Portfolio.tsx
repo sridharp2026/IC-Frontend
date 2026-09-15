@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import PillBadge from "../../components/PillBadge";
 import PortfolioCard from "../../components/PortfolioCard";
 import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
@@ -17,10 +15,7 @@ export default function Portfolio() {
       >
         <div>
           <PillBadge text="Portfolio" />
-          <motion.h2
-            variants={fadeUp}
-            className="text-h1 !leading-[100%] text-[var(--color-primary)]"
-          >
+          <motion.h2 variants={fadeUp} className="text-h1-tight text-[var(--color-primary)]">
             Leading Startups We Incubated
           </motion.h2>
         </div>

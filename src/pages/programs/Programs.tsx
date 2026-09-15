@@ -68,14 +68,14 @@ export default function Programs() {
       <Navbar />
       <main className="flex-1">
         <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
             Turning Potential Into
             <br />
             Possibility
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            Our programs bring together knowledge, technology, and hands-on
-            experiences to empower people to create, innovate, and grow.
+          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
+            Our programs bring together knowledge, technology, and hands-on experiences to empower
+            people to create, innovate, and grow.
           </p>
         </div>
 

@@ -62,13 +62,11 @@ export const aboutParagraphs = [
 export const journeyMilestones = [
   {
     year: "2013",
-    description:
-      "Incorporation of IITM Incubation Cell as a not-for-profit Section 8 Company.",
+    description: "Incorporation of IITM Incubation Cell as a not-for-profit Section 8 Company.",
   },
   {
     year: "2014",
-    description:
-      "IITM Incubation cell launches Bio-Incubator for biotechnology startups.",
+    description: "IITM Incubation cell launches Bio-Incubator for biotechnology startups.",
   },
   {
     year: "2015",
@@ -77,8 +75,7 @@ export const journeyMilestones = [
   },
   {
     year: "2016",
-    description:
-      "248 patent applications filed, the most among all IITs in India.",
+    description: "248 patent applications filed, the most among all IITs in India.",
   },
 ];
 
@@ -88,8 +85,7 @@ export const coreValues = [
   {
     icon: "Lightbulb",
     title: "Discover",
-    description:
-      "Helping identify promising technologies, founders and opportunities.",
+    description: "Helping identify promising technologies, founders and opportunities.",
   },
   {
     icon: "Rocket",
@@ -100,20 +96,17 @@ export const coreValues = [
   {
     icon: "Settings",
     title: "Validate",
-    description:
-      "Supporting the journey from prototype to product, market and customer.",
+    description: "Supporting the journey from prototype to product, market and customer.",
   },
   {
     icon: "TrendingUp",
     title: "Connect",
-    description:
-      "Bringing founders closer to mentors, industry, investors and strategic partners.",
+    description: "Bringing founders closer to mentors, industry, investors and strategic partners.",
   },
   {
     icon: "Shield",
     title: "Scale",
-    description:
-      "Building capabilities, networks, and momentum for the next stage of growth.",
+    description: "Building capabilities, networks, and momentum for the next stage of growth.",
   },
   {
     icon: "Users",
@@ -128,10 +121,7 @@ export const coreValues = [
 // placeholder for any tab with no entries yet.
 export const teamTabs = ["Board", "Management", "Steering Committee", "Mentors"];
 
-export const teamMembers: Record<
-  string,
-  { name: string; role: string; image: string }[]
-> = {
+export const teamMembers: Record<string, { name: string; role: string; image: string }[]> = {
   Board: [
     {
       name: "Dr. Bhaskar Ramamurthi",
@@ -211,25 +201,29 @@ export const testimonial = {
 export const corePillars = [
   {
     title: "Access to IIT Madras",
-    description: "Connect with world-class faculty, researchers, students, laboratories, centres of excellence and institutional expertise",
+    description:
+      "Connect with world-class faculty, researchers, students, laboratories, centres of excellence and institutional expertise",
     icon: "Zap",
     highlighted: true,
   },
   {
     title: "Build with Infrastructure",
-    description: "Move beyond ideas with access to specialised infrastructure, prototyping capabilities, testing facilities and the IIT Madras",
+    description:
+      "Move beyond ideas with access to specialised infrastructure, prototyping capabilities, testing facilities and the IIT Madras",
     icon: "Target",
     highlighted: false,
   },
   {
     title: "Mentors & Industry",
-    description: "Learn from experienced founders, industry leaders, domain experts and a powerful alumni network.",
+    description:
+      "Learn from experienced founders, industry leaders, domain experts and a powerful alumni network.",
     icon: "Maximize2",
     highlighted: false,
   },
   {
     title: "Capital & Connections",
-    description: "Get connected to investors, strategic partners and the networks needed to unlock the next stage of growth.",
+    description:
+      "Get connected to investors, strategic partners and the networks needed to unlock the next stage of growth.",
     icon: "Globe2",
     highlighted: false,
   },
@@ -298,7 +292,8 @@ export const portfolioStartups = [
     logo: "logo/ather.png",
     tag: "Publicly Listed",
     sector: "Electric Mobility",
-    description: "India's largest E2W manufacturer with a market cap of +₹60,000 crore on National Stock Exchange (NSE).",
+    description:
+      "India's largest E2W manufacturer with a market cap of +₹60,000 crore on National Stock Exchange (NSE).",
     media: "portfolio-1.jpg",
   },
   {
@@ -306,7 +301,8 @@ export const portfolioStartups = [
     slug: "uniphore",
     tag: "Enterprise AI",
     sector: "Deep-tech",
-    description: "An IIT Madras-born company building enterprise AI for customers across the world.",
+    description:
+      "An IIT Madras-born company building enterprise AI for customers across the world.",
     media: "portfolio-2.jpg",
   },
   {
@@ -314,7 +310,8 @@ export const portfolioStartups = [
     slug: "stellapps",
     tag: "IoT, Agriculture (Dairy)",
     sector: "Agritech",
-    description: "India's first & largest dairy IoT company - focuses on automation, data acquisition, and ML.",
+    description:
+      "India's first & largest dairy IoT company - focuses on automation, data acquisition, and ML.",
     media: "portfolio-3.jpg",
   },
 ];

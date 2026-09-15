@@ -17,18 +17,17 @@ export default function Careers() {
         >
           <motion.h1
             variants={fadeUp}
-            className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
+            className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
           >
             Build Your Future With Us.
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
+            className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
           >
-            Join a team of passionate innovators solving real-world challenges
-            and building technology <br />
-            that makes a difference. Explore opportunities to grow,
-            contribute, and create impact.
+            Join a team of passionate innovators solving real-world challenges and building
+            technology <br />
+            that makes a difference. Explore opportunities to grow, contribute, and create impact.
           </motion.p>
         </motion.div>
         <RecommendedJobs />

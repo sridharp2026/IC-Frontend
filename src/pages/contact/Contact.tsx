@@ -50,18 +50,14 @@ export default function Contact() {
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] max-w-2xl mb-12"
+            className="text-p1 align-middle text-[var(--color-muted)] max-w-2xl mb-12"
           >
-            Let's work together to build smarter, cleaner, and more sustainable
-            energy solutions for your business.
+            Let's work together to build smarter, cleaner, and more sustainable energy solutions for
+            your business.
           </motion.p>
 
           <div className="grid gap-[73px] md:grid-cols-[1fr_435px] items-start">
-            <motion.form
-              variants={fadeUp}
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
+            <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label className={labelClass}>
@@ -128,22 +124,18 @@ export default function Contact() {
               className="flex flex-col gap-[30px] bg-[#120A8F] text-white rounded-tl-[19.54px] rounded-tr-[70.36px] rounded-br-[19.54px] rounded-bl-[19.54px] border-t-[3.91px] border-t-[#C8102E] p-[39.09px]"
             >
               <div>
-                <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase mb-4">
-                  Address
-                </h3>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-white/90">
-                  IIT Madras Research Park, Kanagam Road, Taramani, Chennai
-                  600 113, Tamil Nadu, India.
+                <h3 className="text-s1 align-middle uppercase mb-4">Address</h3>
+                <p className="text-p1 align-middle text-white/90">
+                  IIT Madras Research Park, Kanagam Road, Taramani, Chennai 600 113, Tamil Nadu,
+                  India.
                 </p>
               </div>
 
               <div className="h-px bg-white/20" />
 
               <div>
-                <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase mb-4">
-                  Office Hours
-                </h3>
-                <div className="space-y-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-white/90">
+                <h3 className="text-s1 align-middle uppercase mb-4">Office Hours</h3>
+                <div className="space-y-2 text-p1 align-middle text-white/90">
                   <div className="flex gap-2">
                     <span className="w-[188px] shrink-0">Monday – Friday</span>
                     <span>: 09:00 – 18:00</span>
@@ -158,9 +150,7 @@ export default function Contact() {
               <div className="h-px bg-white/20" />
 
               <div>
-                <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase mb-4">
-                  Stay Connected
-                </h3>
+                <h3 className="text-s1 align-middle uppercase mb-4">Stay Connected</h3>
                 <div className="flex items-center gap-3">
                   {socialLinks.map(({ label, icon: Icon }) => (
                     <a
@@ -190,32 +180,26 @@ export default function Contact() {
           >
             <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
               <motion.div variants={fadeUp}>
-                <p className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-secondary)] mb-3">
-                  Contact Info
-                </p>
-                <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-[var(--color-primary)]">
+                <p className="text-s1 uppercase text-[var(--color-secondary)] mb-3">Contact Info</p>
+                <h2 className="text-h1-tight text-[var(--color-primary)]">
                   We are always happy to assist you
                 </h2>
               </motion.div>
 
               <motion.div variants={fadeUp}>
-                <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)] mb-3">
+                <h3 className="text-s1 uppercase text-[var(--color-primary)] mb-3">
                   Email Address
                 </h3>
                 <div className="w-[20.25px] h-[2.25px] bg-[var(--color-muted)] mb-3" />
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-                  {megaMenuContact.email}
-                </p>
+                <p className="text-p1 text-[var(--color-muted)]">{megaMenuContact.email}</p>
               </motion.div>
 
               <motion.div variants={fadeUp}>
-                <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)] mb-3">
+                <h3 className="text-s1 uppercase text-[var(--color-primary)] mb-3">
                   Mobile Number
                 </h3>
                 <div className="w-[20.25px] h-[2.25px] bg-[var(--color-muted)] mb-3" />
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-                  {megaMenuContact.phone}
-                </p>
+                <p className="text-p1 text-[var(--color-muted)]">{megaMenuContact.phone}</p>
               </motion.div>
             </div>
           </motion.div>

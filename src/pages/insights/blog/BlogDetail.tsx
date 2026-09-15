@@ -35,7 +35,9 @@ export default function BlogDetail() {
       { rootMargin: "-120px 0px -70% 0px", threshold: 0 },
     );
 
-    const elements = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -55,9 +57,7 @@ export default function BlogDetail() {
         <Navbar />
         <main className="flex-1 flex items-center justify-center px-6">
           <div className="text-center max-w-lg">
-            <h1 className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-primary)] mb-4">
-              Post not found
-            </h1>
+            <h1 className="text-p1 text-[var(--color-primary)] mb-4">Post not found</h1>
             <button
               type="button"
               onClick={() => navigate("/insights/blog")}
@@ -82,7 +82,7 @@ export default function BlogDetail() {
           <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
             <nav
               aria-label="Breadcrumb"
-              className="flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]"
+              className="flex items-center gap-2 text-p1 text-[var(--color-muted)]"
             >
               <Link to="/insights/blog" className="hover:text-[var(--color-primary)]">
                 Blog
@@ -94,13 +94,13 @@ export default function BlogDetail() {
             <button
               type="button"
               onClick={handleBack}
-              className="flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-primary)] hover:underline"
+              className="flex items-center gap-2 text-p1 text-[var(--color-primary)] hover:underline"
             >
               <ArrowLeft size={20} /> Back
             </button>
           </div>
 
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-6">
+          <h1 className="text-hero-tight align-middle text-[var(--color-primary)] mb-6">
             {detail?.headline ?? item.title}
           </h1>
 
@@ -109,30 +109,18 @@ export default function BlogDetail() {
           {detail && (
             <div className="flex flex-wrap items-center gap-6 mb-10">
               <div>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-ink)]">
-                  Duration
-                </p>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-                  {detail.duration}
-                </p>
+                <p className="text-p1 text-[var(--color-ink)]">Duration</p>
+                <p className="text-p1 text-[var(--color-muted)]">{detail.duration}</p>
               </div>
               <div className="w-px h-9 bg-[#E5E5EA]" />
               <div>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-ink)]">
-                  Author
-                </p>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-                  {detail.author}
-                </p>
+                <p className="text-p1 text-[var(--color-ink)]">Author</p>
+                <p className="text-p1 text-[var(--color-muted)]">{detail.author}</p>
               </div>
               <div className="w-px h-9 bg-[#E5E5EA]" />
               <div>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-ink)]">
-                  Posted On
-                </p>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-                  {detail.postedOn}
-                </p>
+                <p className="text-p1 text-[var(--color-ink)]">Posted On</p>
+                <p className="text-p1 text-[var(--color-muted)]">{detail.postedOn}</p>
               </div>
 
               <div className="ml-auto flex items-center gap-2">
@@ -141,7 +129,7 @@ export default function BlogDetail() {
                 </span>
                 <NumberFlow
                   value={`${detail.views} VIEWS`}
-                  className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)]"
+                  className="text-s1 uppercase text-[var(--color-primary)]"
                 />
               </div>
             </div>
@@ -157,19 +145,23 @@ export default function BlogDetail() {
 
               {detail ? (
                 <>
-                  <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)] mb-8">
+                  <p className="text-p1 align-middle text-justify text-[var(--color-muted)] mb-8">
                     {detail.intro}
                   </p>
 
                   {detail.sections.map((section, i) => (
-                    <div key={section.heading} id={`section-${i + 1}`} className="mb-8 scroll-mt-28">
-                      <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-3">
+                    <div
+                      key={section.heading}
+                      id={`section-${i + 1}`}
+                      className="mb-8 scroll-mt-28"
+                    >
+                      <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-3">
                         {section.heading}
                       </h2>
                       {section.paragraphs?.map((p, pi) => (
                         <p
                           key={pi}
-                          className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)] mb-3"
+                          className="text-p1 align-middle text-justify text-[var(--color-muted)] mb-3"
                         >
                           {p}
                         </p>
@@ -179,7 +171,7 @@ export default function BlogDetail() {
                           {section.list.map((li, li_i) => (
                             <li
                               key={li_i}
-                              className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]"
+                              className="text-p1 align-middle text-justify text-[var(--color-muted)]"
                             >
                               {li}
                             </li>
@@ -190,13 +182,13 @@ export default function BlogDetail() {
                   ))}
 
                   <div className="mb-8">
-                    <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-3">
+                    <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-3">
                       Conclusion:
                     </h2>
                     {detail.conclusion.map((p, i) => (
                       <p
                         key={i}
-                        className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)] mb-3"
+                        className="text-p1 align-middle text-justify text-[var(--color-muted)] mb-3"
                       >
                         {p}
                       </p>
@@ -204,14 +196,14 @@ export default function BlogDetail() {
                   </div>
 
                   <div>
-                    <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-4">
+                    <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
                       Tags
                     </h2>
                     <div className="flex flex-wrap gap-3">
                       {detail.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-block bg-[var(--color-secondary)] text-white font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] align-middle text-justify px-4 py-1.5 rounded-full"
+                          className="inline-block bg-[var(--color-secondary)] text-white text-p2-tight align-middle text-justify px-4 py-1.5 rounded-full"
                         >
                           {tag}
                         </span>
@@ -228,7 +220,7 @@ export default function BlogDetail() {
 
             {detail && (
               <aside className="w-full lg:w-[397px] shrink-0 lg:sticky lg:top-0 bg-[#E5E8EE33] border border-[#7F7F7F80] rounded-[10px] p-6">
-                <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-4">
+                <h2 className="text-h1-tight align-middle text-[var(--color-primary)] mb-4">
                   Introduction
                 </h2>
                 <ol className="space-y-3">
@@ -239,7 +231,7 @@ export default function BlogDetail() {
                         <a
                           href={`#section-${i + 1}`}
                           onClick={() => setActiveSection(i + 1)}
-                          className={`font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] transition-colors ${
+                          className={`text-p1 transition-colors ${
                             active
                               ? "text-[var(--color-primary)] font-bold"
                               : "text-[var(--color-muted)] hover:text-[var(--color-primary)]"
@@ -258,7 +250,7 @@ export default function BlogDetail() {
 
         {recentBlogs.length > 0 && (
           <section className="max-w-7xl mx-auto px-6 md:px-10 pb-20">
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center text-[var(--color-primary)] mb-10">
+            <h2 className="text-h1-tight text-center text-[var(--color-primary)] mb-10">
               Recent Blogs
             </h2>
 

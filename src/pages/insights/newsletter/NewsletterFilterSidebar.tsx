@@ -60,7 +60,7 @@ export default function NewsletterFilterSidebar({
                     className="flex items-center justify-between w-full text-left group"
                   >
                     <span
-                      className={`font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] ${
+                      className={`text-p1 ${
                         active ? "text-[var(--color-primary)]" : "text-[var(--color-ink)]"
                       }`}
                     >

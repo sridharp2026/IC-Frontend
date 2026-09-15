@@ -69,7 +69,7 @@ function RadioOptions({
                 }`}
               />
               <span
-                className={`font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center ${
+                className={`text-p1 text-center ${
                   active ? "text-[var(--color-primary)]" : "text-[var(--color-ink)]"
                 }`}
               >
@@ -101,9 +101,7 @@ function FilterGroupSection({
         className="flex items-center w-full mb-3"
         aria-expanded={open}
       >
-        <span className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)]">
-          {title}
-        </span>
+        <span className="text-s1 uppercase text-[var(--color-primary)]">{title}</span>
         <span className="ml-auto h-5 w-5 rounded-full bg-[#F1F1F1] flex items-center justify-center text-[var(--color-muted)]">
           {open ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </span>

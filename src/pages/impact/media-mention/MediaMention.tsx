@@ -93,18 +93,16 @@ function MediaMentionCard({ category, date, title, description, images, href }: 
     >
       <div>
         <div className="flex items-center gap-3 mb-5 text-[14px] text-[var(--color-muted)]">
-          <span className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle rounded-[11.53px] border-[0.96px] border-[#C7C5D5] pt-[3.36px] pr-[11.53px] pb-[3.74px] pl-[11.53px]">
+          <span className="text-p1 align-middle rounded-[11.53px] border-[0.96px] border-[#C7C5D5] pt-[3.36px] pr-[11.53px] pb-[3.74px] pl-[11.53px]">
             {category}
           </span>
-          <span className="flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle">
+          <span className="flex items-center gap-1.5 text-p1 align-middle">
             <Calendar size={14} />
             {date}
           </span>
         </div>
 
-        <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-4">
-          {title}
-        </h3>
+        <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-4">{title}</h3>
 
         <p className="font-[Arial] text-[24px] font-normal leading-[42.9px] tracking-[0px] text-justify align-middle text-[var(--color-muted)] mb-6">
           {description}
@@ -133,11 +131,11 @@ export default function MediaMention() {
       <Navbar />
       <main className="flex-1">
         <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
             Our Journey in the <br />
             Spotlight
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
+          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
             Explore the latest news, stories, and media highlights showcasing <br />
             the people, innovations, and impact shaping our ecosystem.
           </p>

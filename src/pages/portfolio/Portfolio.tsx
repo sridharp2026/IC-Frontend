@@ -117,11 +117,14 @@ export default function Portfolio() {
       <Navbar />
       <main className="flex-1">
         <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
-            A Portfolio Built Around <br />Innovation
+          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
+            A Portfolio Built Around <br />
+            Innovation
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-             Explore the ventures and technologies emerging from our ecosystem, built by ambitious founders tackling complex challenges across deep-tech and high-impact sectors.          </p>
+          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
+            Explore the ventures and technologies emerging from our ecosystem, built by ambitious
+            founders tackling complex challenges across deep-tech and high-impact sectors.{" "}
+          </p>
         </div>
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 flex flex-col md:flex-row gap-10 md:gap-16 items-start">
