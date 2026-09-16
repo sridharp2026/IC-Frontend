@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ChevronRight, Eye } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { Eye } from "lucide-react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import NumberFlow from "../../../components/NumberFlow";
+import NotFoundState from "../../../components/NotFoundState";
+import Breadcrumb from "../../../components/Breadcrumb";
 import RecentBlogCard from "./RecentBlogCard";
 import { blogFeed } from "../../../data/site";
 import { blogDetails } from "../../../data/blogDetails";
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const item = slug ? blogFeed.find((b) => b.slug === slug) : undefined;
   const detail = slug ? blogDetails[slug] : undefined;
@@ -43,32 +43,9 @@ export default function BlogDetail() {
     return () => observer.disconnect();
   }, [detail, slug]);
 
-  function handleBack() {
-    if (location.key === "default") {
-      navigate("/insights/blog");
-    } else {
-      navigate(-1);
-    }
-  }
-
   if (!item) {
     return (
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1 flex items-center justify-center px-6">
-          <div className="text-center max-w-lg">
-            <h1 className="text-p1 text-[var(--color-primary)] mb-4">Post not found</h1>
-            <button
-              type="button"
-              onClick={() => navigate("/insights/blog")}
-              className="btn-primary inline-flex"
-            >
-              Back to Blog
-            </button>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <NotFoundState heading="Post not found" backTo="/insights/blog" backLabel="Back to Blog" />
     );
   }
 
@@ -79,26 +56,12 @@ export default function BlogDetail() {
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">
-          <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-p1 text-[var(--color-muted)]"
-            >
-              <Link to="/insights/blog" className="hover:text-[var(--color-primary)]">
-                Blog
-              </Link>
-              <ChevronRight size={16} />
-              <span className="text-[var(--color-secondary)]">Blog Detail</span>
-            </nav>
-
-            <button
-              type="button"
-              onClick={handleBack}
-              className="flex items-center gap-2 text-p1 text-[var(--color-primary)] hover:underline"
-            >
-              <ArrowLeft size={20} /> Back
-            </button>
-          </div>
+          <Breadcrumb
+            trail={[{ label: "Blog", to: "/insights/blog" }]}
+            current="Blog Detail"
+            backTo="/insights/blog"
+            className="mb-4"
+          />
 
           <h1 className="text-hero-tight align-middle text-[var(--color-primary)] mb-6">
             {detail?.headline ?? item.title}

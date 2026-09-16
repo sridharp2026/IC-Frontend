@@ -2,7 +2,8 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
+import PageHero from "../../../components/PageHero";
+import { revealProps, staggerContainer } from "../../../lib/motion";
 import { newsFeed, newsletterTopics } from "../../../data/site";
 import Pagination from "../../portfolio/Pagination";
 import NewsFeedCard from "./NewsFeedCard";
@@ -44,27 +45,15 @@ export default function Newsletter() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <div className="px-6">
-          <motion.div
-            variants={staggerContainer}
-            {...revealProps}
-            className="text-center max-w-7xl mx-auto px-6 pt-12"
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
-            >
-              What’s New. What’s Next.
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
-            >
+        <PageHero
+          heading="What’s New. What’s Next."
+          description={
+            <>
               A curated newsletter featuring fresh insights, breakthrough ideas, and <br />
               important updates all in one place.
-            </motion.p>
-          </motion.div>
-        </div>
+            </>
+          }
+        />
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 flex flex-col md:flex-row gap-10 md:gap-[42px] items-start">
           <TopicFilterSidebar

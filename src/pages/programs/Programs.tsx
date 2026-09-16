@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import ProgramCard from "../../components/ProgramCard";
 import Pagination from "../portfolio/Pagination";
 import SearchInput from "../../components/SearchInput";
+import PageHero from "../../components/PageHero";
 import { programs } from "../../data/site";
 import { revealProps, staggerGrid } from "../../lib/motion";
 
@@ -67,17 +68,16 @@ export default function Programs() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
-            Turning Potential Into
-            <br />
-            Possibility
-          </h1>
-          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            Our programs bring together knowledge, technology, and hands-on experiences to empower
-            people to create, innovate, and grow.
-          </p>
-        </div>
+        <PageHero
+          heading={
+            <>
+              Turning Potential Into
+              <br />
+              Possibility
+            </>
+          }
+          description="Our programs bring together knowledge, technology, and hands-on experiences to empower people to create, innovate, and grow."
+        />
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 pb-20 md:pb-28">
           <div className="flex items-center gap-2 rounded-full border border-[#E0E0E0] bg-white py-2 px-[28px] mb-10 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import PageHero from "../../../components/PageHero";
 import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
 
 type FundingStatus = "ongoing" | "closed";
@@ -177,27 +178,21 @@ export default function FundRaising() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <motion.div
-          variants={staggerContainer}
-          {...revealProps}
-          className="text-center max-w-7xl mx-auto px-6 pt-12"
-        >
-          <motion.h1
-            variants={fadeUp}
-            className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
-          >
-            Fueling Deep-Tech <br />
-            Innovation
-          </motion.h1>
-          <motion.p
-            variants={fadeUp}
-            className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
-          >
-            Partner with India's leading deep-tech incubator to scale transformative <br />
-            technologies. Your investment directly accelerates breakthrough research from lab to
-            market.
-          </motion.p>
-        </motion.div>
+        <PageHero
+          heading={
+            <>
+              Fueling Deep-Tech <br />
+              Innovation
+            </>
+          }
+          description={
+            <>
+              Partner with India's leading deep-tech incubator to scale transformative <br />
+              technologies. Your investment directly accelerates breakthrough research from lab to
+              market.
+            </>
+          }
+        />
 
         <section className="max-w-7xl mx-auto px-6 pb-20 md:pb-28">
           <motion.div

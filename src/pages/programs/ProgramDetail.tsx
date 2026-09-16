@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { ChevronRight, Briefcase, MapPin, Users, Clock, Tag, Landmark, Check } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { Briefcase, MapPin, Users, Clock, Tag, Landmark, Check } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CustomButton from "../../components/CustomButton";
 import ApplyModal from "../../components/ApplyModal";
+import NotFoundState from "../../components/NotFoundState";
+import Breadcrumb from "../../components/Breadcrumb";
 import { programs } from "../../data/site";
 import { programDetails, type ProgramDetailRow } from "../../data/programDetails";
 
@@ -26,18 +28,7 @@ export default function ProgramDetail() {
 
   if (!program || !detail) {
     return (
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1 flex items-center justify-center px-6">
-          <div className="text-center max-w-lg">
-            <h1 className="text-h1 text-[var(--color-primary)] mb-4">Program not found</h1>
-            <Link to="/programs" className="btn-primary inline-flex">
-              Back to Programs
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <NotFoundState heading="Program not found" backTo="/programs" backLabel="Back to Programs" />
     );
   }
 
@@ -46,16 +37,11 @@ export default function ProgramDetail() {
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)] mb-8"
-          >
-            <Link to="/programs" className="hover:text-[var(--color-primary)]">
-              Program
-            </Link>
-            <ChevronRight size={18} />
-            <span className="text-[var(--color-primary)]">Program Detail</span>
-          </nav>
+          <Breadcrumb
+            trail={[{ label: "Program", to: "/programs" }]}
+            current="Program Detail"
+            backTo="/programs"
+          />
 
           <div className="rounded-2xl border border-[#F3F4F6] p-6 md:p-10 mb-10">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">

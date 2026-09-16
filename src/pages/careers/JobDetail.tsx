@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ChevronRight,
   MapPin,
   Network,
   Briefcase,
@@ -17,12 +16,13 @@ import {
   FlaskConical,
   Settings,
   ArrowUpRight,
-  ArrowLeft,
   type LucideIcon,
 } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import NumberFlow from "../../components/NumberFlow";
+import NotFoundState from "../../components/NotFoundState";
+import Breadcrumb from "../../components/Breadcrumb";
 import { JOBS, ACCENT_CLASSES } from "../../data/jobs";
 import { jobDetails } from "../../data/jobDetails";
 
@@ -44,20 +44,7 @@ export default function JobDetail() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   if (!job || !detail) {
-    return (
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1 flex items-center justify-center px-6">
-          <div className="text-center max-w-lg">
-            <h1 className="text-h1 text-[var(--color-primary)] mb-4">Job not found</h1>
-            <Link to="/careers" className="btn-primary inline-flex">
-              Back to Careers
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
+    return <NotFoundState heading="Job not found" backTo="/careers" backLabel="Back to Careers" />;
   }
 
   const accent = ACCENT_CLASSES[job.accent];
@@ -125,26 +112,11 @@ export default function JobDetail() {
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
-          <div className="flex items-center justify-between mb-8">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)]"
-            >
-              <Link to="/careers" className="hover:text-[var(--color-primary)]">
-                Careers
-              </Link>
-              <ChevronRight size={18} />
-              <span className="text-[var(--color-primary)]">Job details</span>
-            </nav>
-
-            <Link
-              to="/careers"
-              className="w-[85px] shrink-0 inline-flex items-center gap-2 font-[Arial] text-[24px] font-normal leading-[22px] tracking-[0px] text-[var(--color-muted)] hover:text-[var(--color-primary)]"
-            >
-              <ArrowLeft size={18} />
-              Back
-            </Link>
-          </div>
+          <Breadcrumb
+            trail={[{ label: "Careers", to: "/careers" }]}
+            current="Job details"
+            backTo="/careers"
+          />
 
           <h1 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-4">
             {job.title}

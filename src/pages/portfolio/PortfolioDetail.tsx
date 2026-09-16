@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ChevronRight } from "lucide-react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ImagePlaceholder from "../../components/ImagePlaceholder";
 import CustomButton from "../../components/CustomButton";
+import NotFoundState from "../../components/NotFoundState";
+import Breadcrumb from "../../components/Breadcrumb";
 import { portfolioStartups } from "../../data/site";
 import { portfolioDetails, type InfoRow } from "../../data/portfolioDetails";
 
@@ -16,8 +17,6 @@ const FALLBACK_MILESTONE_DOT: Record<string, string> = {
 
 export default function PortfolioDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const startup = portfolioStartups.find((s) => s.slug === slug);
   const detail = slug ? portfolioDetails[slug] : undefined;
@@ -35,28 +34,13 @@ export default function PortfolioDetail() {
     v.currentTime = 0;
   }
 
-  function handleBack() {
-    if (location.key === "default") {
-      navigate("/portfolio");
-    } else {
-      navigate(-1);
-    }
-  }
-
   if (!startup) {
     return (
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1 flex items-center justify-center px-6">
-          <div className="text-center max-w-lg">
-            <h1 className="text-h1 text-[var(--color-primary)] mb-4">Company not found</h1>
-            <Link to="/portfolio" className="btn-primary inline-flex">
-              <ArrowLeft size={16} /> Back to Portfolio
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <NotFoundState
+        heading="Company not found"
+        backTo="/portfolio"
+        backLabel="Back to Portfolio"
+      />
     );
   }
 
@@ -72,30 +56,14 @@ export default function PortfolioDetail() {
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">
-          <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)]"
-            >
-              <Link to="/" className="hover:text-[var(--color-primary)]">
-                Home
-              </Link>
-              <ChevronRight size={18} />
-              <Link to="/portfolio" className="hover:text-[var(--color-primary)]">
-                Portfolio
-              </Link>
-              <ChevronRight size={18} />
-              <span className="text-[var(--color-primary)]">{startup.name}</span>
-            </nav>
-
-            <button
-              type="button"
-              onClick={handleBack}
-              className="flex items-center gap-2 text-p1 align-middle text-[var(--color-primary)] hover:underline"
-            >
-              <ArrowLeft size={20} /> Back
-            </button>
-          </div>
+          <Breadcrumb
+            trail={[
+              { label: "Home", to: "/" },
+              { label: "Portfolio", to: "/portfolio" },
+            ]}
+            current={startup.name}
+            backTo="/portfolio"
+          />
 
           <div className="border-[1.05px] border-[#E5E7EB] rounded-2xl p-6 md:p-10">
             <div className="flex flex-col sm:flex-row gap-6 mb-10">

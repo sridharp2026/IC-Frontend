@@ -3,6 +3,7 @@ import { Calendar, Play } from "lucide-react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import CustomButton from "../../../components/CustomButton";
+import PageHero from "../../../components/PageHero";
 import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
 
 interface MediaMentionImage {
@@ -135,16 +136,20 @@ export default function MediaMention() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
-            Our Journey in the <br />
-            Spotlight
-          </h1>
-          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            Explore the latest news, stories, and media highlights showcasing <br />
-            the people, innovations, and impact shaping our ecosystem.
-          </p>
-        </div>
+        <PageHero
+          heading={
+            <>
+              Our Journey in the <br />
+              Spotlight
+            </>
+          }
+          description={
+            <>
+              Explore the latest news, stories, and media highlights showcasing <br />
+              the people, innovations, and impact shaping our ecosystem.
+            </>
+          }
+        />
 
         <section className="max-w-7xl mx-auto px-6 pb-20">
           <motion.div variants={staggerContainer} {...revealProps}>

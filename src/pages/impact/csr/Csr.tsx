@@ -16,6 +16,7 @@ import {
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import CustomButton from "../../../components/CustomButton";
+import PageHero from "../../../components/PageHero";
 import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
 
 export default function Csr() {
@@ -23,29 +24,24 @@ export default function Csr() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <motion.div
-          variants={staggerContainer}
-          {...revealProps}
-          className="text-center max-w-7xl mx-auto px-6 pt-12"
+        <PageHero
+          heading={
+            <>
+              Corporate Social Responsibility <br />& Technology Incubators
+            </>
+          }
+          description={
+            <>
+              Empowering innovation. Nurturing startups. Creating impact for society and driving{" "}
+              <br />
+              economic growth through dedicated research and academic excellence.
+            </>
+          }
         >
-          <motion.h1
-            variants={fadeUp}
-            className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4"
-          >
-            Corporate Social Responsibility <br />& Technology Incubators
-          </motion.h1>
-          <motion.p
-            variants={fadeUp}
-            className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
-          >
-            Empowering innovation. Nurturing startups. Creating impact for society and driving{" "}
-            <br />
-            economic growth through dedicated research and academic excellence.
-          </motion.p>
           <motion.div variants={fadeUp} className="inline-block">
             <CustomButton href="/e-prospectus.pdf" label="Download E-Prospectus" icon={ArrowDown} />
           </motion.div>
-        </motion.div>
+        </PageHero>
 
         <section className="max-w-7xl mx-auto px-6 pt-12 pb-20 md:pb-28">
           <motion.div variants={staggerContainer} {...revealProps}>
