@@ -27,7 +27,7 @@ export default function EcosystemDiagram() {
           </p>
         </motion.div>
         <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-          <CustomButton href="/impact" label="Explore Network" />
+          <CustomButton href="/impact/csr" label="Explore Network" />
           <CustomButton icon={false} variant="secondary" href="/portfolio" label="View Partners" />
         </motion.div>
       </motion.div>

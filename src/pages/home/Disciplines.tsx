@@ -63,7 +63,7 @@ export default function Disciplines() {
           );
         })}
         <motion.div variants={fadeUp} className="flex items-center justify-center p-6 bg-white">
-          <CustomButton href="/impact" label="Explore Impact" />
+          <CustomButton href="/impact/media-mention" label="Explore Impact" />
         </motion.div>
       </motion.div>
     </section>

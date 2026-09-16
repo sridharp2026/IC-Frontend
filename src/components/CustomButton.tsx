@@ -20,7 +20,7 @@ import { ArrowRight, type LucideIcon } from "lucide-react";
  * the label stays put on hover — only the corner glows animate.
  */
 export default function CustomButton({
-  href = "/apply",
+  href = "/impact/csr",
   label = "Apply Now",
   icon: Icon = ArrowRight,
   variant = "primary",
