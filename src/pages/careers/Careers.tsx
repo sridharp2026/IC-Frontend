@@ -1,36 +1,24 @@
-import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import PageHero from "../../components/PageHero";
 import RecommendedJobs from "./RecommendedJobs";
 import TopStartupsHiring from "./TopStartupsHiring";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
 
 export default function Careers() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <motion.div
-          variants={staggerContainer}
-          {...revealProps}
-          className="text-center max-w-7xl mx-auto px-6 pt-12"
-        >
-          <motion.h1
-            variants={fadeUp}
-            className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
-          >
-            Build Your Future With Us.
-          </motion.h1>
-          <motion.p
-            variants={fadeUp}
-            className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
-          >
-            Join a team of passionate innovators solving real-world challenges
-            and building technology <br />
-            that makes a difference. Explore opportunities to grow,
-            contribute, and create impact.
-          </motion.p>
-        </motion.div>
+        <PageHero
+          heading="Build Your Future With Us."
+          description={
+            <>
+              Join a team of passionate innovators solving real-world challenges and building
+              technology <br />
+              that makes a difference. Explore opportunities to grow, contribute, and create impact.
+            </>
+          }
+        />
         <RecommendedJobs />
         <TopStartupsHiring />
       </main>

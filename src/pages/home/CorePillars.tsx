@@ -11,13 +11,7 @@ const pillarIcons: Record<string, typeof Zap> = {
   Globe2,
 };
 
-function PillarCard({
-  pillar,
-  index,
-}: {
-  pillar: (typeof corePillars)[number];
-  index: number;
-}) {
+function PillarCard({ pillar, index }: { pillar: (typeof corePillars)[number]; index: number }) {
   const Icon = pillarIcons[pillar.icon] ?? Zap;
   const tinted = index % 2 === 0;
 
@@ -74,10 +68,7 @@ export default function CorePillars() {
     <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
       <motion.div variants={staggerContainer} {...revealProps}>
         <PillBadge text="Core Pillars" />
-        <motion.h2
-          variants={fadeUp}
-          className="text-h1 text-[var(--color-primary)] mb-10"
-        >
+        <motion.h2 variants={fadeUp} className="text-h1 text-[var(--color-primary)] mb-10">
           Why IIT Madras Incubation Cell?
         </motion.h2>
         <motion.div variants={staggerContainer} className="flex flex-col gap-5">

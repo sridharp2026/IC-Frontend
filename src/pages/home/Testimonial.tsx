@@ -22,9 +22,7 @@ export default function Testimonial() {
             &ldquo;{testimonial.quote}&rdquo;
           </blockquote>
           <footer className="mt-6">
-            <cite className="text-p1 text-white not-italic">
-              — {testimonial.name}
-            </cite>
+            <cite className="text-p1 text-white not-italic">— {testimonial.name}</cite>
             <p className="text-p3 mt-2 text-white/90">{testimonial.role}</p>
           </footer>
         </motion.div>
@@ -33,6 +31,7 @@ export default function Testimonial() {
           <img
             src={testimonial.image}
             alt={testimonial.name}
+            loading="lazy"
             className="w-[370px] h-[350px] rounded-[32px] object-cover shadow-xl"
           />
         </motion.div>

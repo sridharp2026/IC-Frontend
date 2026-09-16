@@ -1,10 +1,11 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ProgramCard from "../../components/ProgramCard";
 import Pagination from "../portfolio/Pagination";
+import SearchInput from "../../components/SearchInput";
+import PageHero from "../../components/PageHero";
 import { programs } from "../../data/site";
 import { revealProps, staggerGrid } from "../../lib/motion";
 
@@ -67,17 +68,16 @@ export default function Programs() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <div className="text-center max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
-            Turning Potential Into
-            <br />
-            Possibility
-          </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            Our programs bring together knowledge, technology, and hands-on
-            experiences to empower people to create, innovate, and grow.
-          </p>
-        </div>
+        <PageHero
+          heading={
+            <>
+              Turning Potential Into
+              <br />
+              Possibility
+            </>
+          }
+          description="Our programs bring together knowledge, technology, and hands-on experiences to empower people to create, innovate, and grow."
+        />
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 pb-20 md:pb-28">
           <div className="flex items-center gap-2 rounded-full border border-[#E0E0E0] bg-white py-2 px-[28px] mb-10 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">
@@ -99,19 +99,16 @@ export default function Programs() {
               );
             })}
 
-            <div className="ml-auto flex items-center gap-[10px] w-[396px] rounded-[24px] border border-[#7F7F7F52] pt-[10px] pr-5 pb-[10px] pl-5">
-              <Search size={18} className="text-[var(--color-muted)] shrink-0" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setPage(1);
-                }}
-                placeholder="Search programs"
-                className="w-full bg-transparent text-sm outline-none placeholder:text-[var(--color-muted)]"
-              />
-            </div>
+            <SearchInput
+              value={query}
+              onChange={(value) => {
+                setQuery(value);
+                setPage(1);
+              }}
+              placeholder="Search programs"
+              variant="compact"
+              className="ml-auto w-[396px]"
+            />
           </div>
 
           {paged.length === 0 ? (

@@ -13,11 +13,7 @@ const socialIcons = [
   { label: "LinkedIn", Icon: Linkedin },
 ];
 
-export default function Navbar({
-  transparent = false,
-}: {
-  transparent?: boolean;
-}) {
+export default function Navbar({ transparent = false }: { transparent?: boolean }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -28,18 +24,19 @@ export default function Navbar({
   const activeFromRoute = megaNavLinks.find(
     (item) =>
       item.to === location.pathname ||
-      ("children" in item &&
-        item.children?.some((child) => child.to === location.pathname)),
+      ("children" in item && item.children?.some((child) => child.to === location.pathname)),
   );
-  const [selected, setSelected] = useState<
-    (typeof megaNavLinks)[number] | null
-  >(null);
+  const [selected, setSelected] = useState<(typeof megaNavLinks)[number] | null>(null);
   const active = selected ?? activeFromRoute ?? null;
 
-  useEffect(() => {
+  // Reset the open/selected menu state when the route changes, without the
+  // extra render an effect-based reset would cause.
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (location.pathname !== prevPathname) {
+    setPrevPathname(location.pathname);
     setOpen(false);
     setSelected(null);
-  }, [location.pathname]);
+  }
 
   // Closing without picking a submenu link just cancels the preview — it must not
   // linger, or reopening the menu would show that stale pick instead of whatever
@@ -62,13 +59,10 @@ export default function Navbar({
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   const toggleBtnClass = `p-2.5 rounded-full transition-colors cursor-pointer ${
-    transparent
-      ? "text-white hover:bg-white/15"
-      : "text-[var(--color-ink)] hover:bg-gray-100"
+    transparent ? "text-white hover:bg-white/15" : "text-[var(--color-ink)] hover:bg-gray-100"
   }`;
 
   return (
@@ -145,11 +139,8 @@ export default function Navbar({
                     const isCurrentPage =
                       item.to === location.pathname ||
                       (hasChildren &&
-                        item.children?.some(
-                          (child) => child.to === location.pathname,
-                        ));
-                    const isPreviewed =
-                      hasChildren && active?.label === item.label;
+                        item.children?.some((child) => child.to === location.pathname));
+                    const isPreviewed = hasChildren && active?.label === item.label;
                     return (
                       <div key={item.label} className="flex items-center gap-3">
                         <span
@@ -260,7 +251,7 @@ export default function Navbar({
                     label="Login"
                     variant="secondary"
                     icon={false}
-                    className="justify-center" 
+                    className="justify-center"
                   />
                   <CustomButton className="justify-center" />
                 </div>

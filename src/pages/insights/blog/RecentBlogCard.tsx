@@ -30,14 +30,15 @@ export default function RecentBlogCard({
           <img
             src={`/images/blog/${image}`}
             alt={title}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <p className="font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-[var(--color-secondary)] mb-2">
+        <p className="text-p2-tight text-[var(--color-secondary)] mb-2">
           {author} • {date}
         </p>
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)] group-hover:text-[var(--color-secondary)] transition-colors">
+          <h3 className="text-s1 uppercase text-[var(--color-primary)] group-hover:text-[var(--color-secondary)] transition-colors">
             {shortTitle}
           </h3>
           <span className="shrink-0 inline-flex items-center justify-center w-11 h-[26px] rounded-full border border-[var(--color-secondary)] text-[var(--color-secondary)] transition-colors duration-200 group-hover:bg-[var(--color-secondary)] group-hover:text-white">

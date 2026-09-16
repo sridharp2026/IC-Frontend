@@ -77,7 +77,12 @@ export const portfolioDetails: Record<string, PortfolioDetail> = {
       { label: "PRIMARY PARTNER", value: "IIT Madras Incubation Cell", tone: "accent" },
       { label: "KEY BACKERS", value: "Hero MotoCorp, GIC, Tiger Global" },
       { label: "CHARGING GRID", value: "2,500+ Fast Stations" },
-      { label: "WEBSITE", value: "https://atherenergy.com", href: "https://atherenergy.com", tone: "accent" },
+      {
+        label: "WEBSITE",
+        value: "https://atherenergy.com",
+        href: "https://atherenergy.com",
+        tone: "accent",
+      },
     ],
     companyParagraphs: [
       "Founded in 2013 by Indian Institute of Technology Madras (IITM) alumni Tarun Mehta and Swapnil Jain, Ather Energy was incubated directly at the IIT Madras Incubation Cell (IITMIC). Armed with a visionary grant and seed support from the incubator's engineering laboratories at IIT Madras Research Park, the duo set out to solve clean urban mobility not through cheap imported conversion kits, but by inventing an indigenous, software-defined, high-performance two-wheeler platform from the ground up.",
@@ -88,7 +93,8 @@ export const portfolioDetails: Record<string, PortfolioDetail> = {
     productHighlight: {
       eyebrow: "Publicly Listed Pioneer",
       title: "Ather 450 Series & Rizta Generation Platform",
-      description: "From an IIT Madras idea to one of India's defining electric mobility companies.",
+      description:
+        "From an IIT Madras idea to one of India's defining electric mobility companies.",
       ctaLabel: "Explore Vehicle Tech",
     },
     heritage: {

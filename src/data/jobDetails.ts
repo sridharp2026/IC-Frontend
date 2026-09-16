@@ -28,7 +28,14 @@ export const jobDetails: Record<string, JobDetail> = {
       "Strong problem-solving and analytical skills.",
       "Experience in prototyping, testing, and product development.",
     ],
-    skills: ["R&D", "Prototyping", "Product Development", "CAD Design", "Data Analysis", "Team Collaboration"],
+    skills: [
+      "R&D",
+      "Prototyping",
+      "Product Development",
+      "CAD Design",
+      "Data Analysis",
+      "Team Collaboration",
+    ],
   },
   "product-manager-healthtech": {
     slug: "product-manager-healthtech",
@@ -47,7 +54,14 @@ export const jobDetails: Record<string, JobDetail> = {
       "Strong analytical and communication skills.",
       "Comfortable operating with ambiguity in an early-stage environment.",
     ],
-    skills: ["Product Strategy", "Roadmapping", "User Research", "Regulatory Compliance", "Data Analysis", "Stakeholder Management"],
+    skills: [
+      "Product Strategy",
+      "Roadmapping",
+      "User Research",
+      "Regulatory Compliance",
+      "Data Analysis",
+      "Stakeholder Management",
+    ],
   },
   "ev-battery-systems-engineer": {
     slug: "ev-battery-systems-engineer",
@@ -66,7 +80,14 @@ export const jobDetails: Record<string, JobDetail> = {
       "Familiarity with BMS, thermal management, and safety standards.",
       "Strong hands-on testing and debugging skills.",
     ],
-    skills: ["Battery Systems", "BMS Integration", "Thermal Management", "CAD Design", "Testing & Validation", "Safety Standards"],
+    skills: [
+      "Battery Systems",
+      "BMS Integration",
+      "Thermal Management",
+      "CAD Design",
+      "Testing & Validation",
+      "Safety Standards",
+    ],
   },
   "agritech-field-operations-lead": {
     slug: "agritech-field-operations-lead",
@@ -85,6 +106,12 @@ export const jobDetails: Record<string, JobDetail> = {
       "Comfortable with frequent travel to field sites.",
       "Strong communication skills across diverse stakeholders.",
     ],
-    skills: ["Field Operations", "Farmer Relations", "Stakeholder Management", "Data Collection", "Team Collaboration"],
+    skills: [
+      "Field Operations",
+      "Farmer Relations",
+      "Stakeholder Management",
+      "Data Collection",
+      "Team Collaboration",
+    ],
   },
 };

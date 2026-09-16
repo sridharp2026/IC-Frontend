@@ -30,23 +30,20 @@ export default function NewsFeedCard({
         <img
           src={`/images/news/${image}`}
           alt={title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
       <div className="flex-1 flex flex-col">
-        <span className="inline-block self-start bg-[var(--color-primary)]/15 text-[var(--color-primary)] font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-4">
+        <span className="inline-block self-start bg-[var(--color-primary)]/15 text-[var(--color-primary)] text-p1 align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-4">
           {tag}
         </span>
-        <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] uppercase text-[var(--color-primary)] mb-2">
-          {date}
-        </p>
-        <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] mb-3 group-hover:text-[var(--color-secondary)] transition-colors">
+        <p className="text-eyebrow uppercase text-[var(--color-primary)] mb-2">{date}</p>
+        <h3 className="text-s1 align-middle text-[var(--color-primary)] mb-3 group-hover:text-[var(--color-secondary)] transition-colors">
           {title}
         </h3>
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] mb-6">
-          {description}
-        </p>
+        <p className="text-p1 align-middle text-[var(--color-muted)] mb-6">{description}</p>
 
         <CustomButton href={href ?? "#"} label="Explore More" className="mt-auto self-start" />
       </div>

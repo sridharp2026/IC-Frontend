@@ -8,16 +8,16 @@ import {
   CarFront,
   ChevronDown,
   Heart,
-  FlaskConical,
   MapPin,
   Network,
   Rocket,
-  Search,
   Sprout,
   ActivitySquare,
   type LucideIcon,
 } from "lucide-react";
 import { fadeUp, revealProps, staggerGrid } from "../../lib/motion";
+import { ACCENT_CLASSES, JOBS, type Job } from "../../data/jobs";
+import SearchInput from "../../components/SearchInput";
 
 const CATEGORIES: { label: string; icon: LucideIcon }[] = [
   { label: "Electric Mobility", icon: CarFront },
@@ -25,98 +25,6 @@ const CATEGORIES: { label: string; icon: LucideIcon }[] = [
   { label: "Deep Manufacturing", icon: Bot },
   { label: "Agri Tech", icon: Sprout },
   { label: "Space Tech", icon: Rocket },
-];
-
-export type Accent = "primary" | "secondary";
-
-export const ACCENT_CLASSES: Record<Accent, { border: string; badgeBg: string; icon: string }> = {
-  primary: {
-    border: "border-l-[var(--color-primary)]",
-    badgeBg: "bg-[var(--color-primary)]/10",
-    icon: "text-[var(--color-primary)]",
-  },
-  secondary: {
-    border: "border-l-[var(--color-secondary)]",
-    badgeBg: "bg-[var(--color-secondary)]/10",
-    icon: "text-[var(--color-secondary)]",
-  },
-};
-
-export type Job = {
-  slug: string;
-  type: string;
-  postedAgo: string;
-  title: string;
-  salary: string;
-  location: string;
-  category: string;
-  experience: string;
-  employees: string;
-  accent: Accent;
-  icon: LucideIcon;
-};
-
-const SENIOR_RND_ENGINEER: Job = {
-  slug: "senior-rd-engineer",
-  type: "Contract",
-  postedAgo: "4 years ago",
-  title: "Senior R&D Engineer",
-  salary: "₹ 15,00,000 - 25,00,000",
-  location: "Chennai, TN",
-  category: "Deep Manufacturing",
-  experience: "4+ Years",
-  employees: "51 - 200",
-  accent: "primary",
-  icon: Briefcase,
-};
-
-const PRODUCT_MANAGER_HEALTHTECH: Job = {
-  slug: "product-manager-healthtech",
-  type: "Full-Time",
-  postedAgo: "2 weeks ago",
-  title: "Product Manager - HealthTech",
-  salary: "₹ 18,00,000 - 30,00,000",
-  location: "Bangalore, KA",
-  category: "Health Tech",
-  experience: "3+ Years",
-  employees: "11 - 50",
-  accent: "secondary",
-  icon: FlaskConical,
-};
-
-const EV_BATTERY_SYSTEMS_ENGINEER: Job = {
-  slug: "ev-battery-systems-engineer",
-  type: "Contract",
-  postedAgo: "1 month ago",
-  title: "EV Battery Systems Engineer",
-  salary: "₹ 12,00,000 - 20,00,000",
-  location: "Pune, MH",
-  category: "Electric Mobility",
-  experience: "3+ Years",
-  employees: "51 - 200",
-  accent: "primary",
-  icon: Briefcase,
-};
-
-const AGRITECH_FIELD_OPERATIONS_LEAD: Job = {
-  slug: "agritech-field-operations-lead",
-  type: "Full-Time",
-  postedAgo: "3 days ago",
-  title: "AgriTech Field Operations Lead",
-  salary: "₹ 10,00,000 - 16,00,000",
-  location: "Nagpur, MH",
-  category: "Agri Tech",
-  experience: "2+ Years",
-  employees: "11 - 50",
-  accent: "secondary",
-  icon: FlaskConical,
-};
-
-export const JOBS: Job[] = [
-  SENIOR_RND_ENGINEER,
-  PRODUCT_MANAGER_HEALTHTECH,
-  EV_BATTERY_SYSTEMS_ENGINEER,
-  AGRITECH_FIELD_OPERATIONS_LEAD,
 ];
 
 const JOB_TITLES = Array.from(new Set(JOBS.map((job) => job.title)));
@@ -142,27 +50,25 @@ function JobCard({ job }: { job: Job }) {
       </button>
 
       <div className="flex items-center gap-4">
-        <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center ${accent.badgeBg} ${accent.icon}`}>
+        <div
+          className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center ${accent.badgeBg} ${accent.icon}`}
+        >
           <Icon size={22} />
         </div>
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+        <p className="text-p1 align-middle text-[var(--color-muted)]">
           Type: {job.type}&nbsp;&nbsp;Time: {job.postedAgo}
         </p>
       </div>
 
-      <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)]">
-        {job.title}
-      </h3>
-      <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-ink)]">
-        {job.salary} / Yearly
-      </p>
+      <h3 className="text-s1 align-middle uppercase text-[var(--color-primary)]">{job.title}</h3>
+      <p className="text-p1 align-middle text-[var(--color-ink)]">{job.salary} / Yearly</p>
 
       <div className="border-t border-[#C7C5D5] pt-[16.1px] flex items-center flex-wrap gap-x-6 gap-y-3">
-        <span className="inline-flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-ink)]">
+        <span className="inline-flex items-center gap-1.5 text-p1 align-middle text-[var(--color-ink)]">
           <MapPin size={16} className={accent.icon} />
           {job.location}
         </span>
-        <span className="inline-flex items-center gap-1.5 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-ink)]">
+        <span className="inline-flex items-center gap-1.5 text-p1 align-middle text-[var(--color-ink)]">
           <Network size={16} className={accent.icon} />
           {job.category}
         </span>
@@ -191,7 +97,9 @@ export default function RecommendedJobs() {
       (!activeCategory || job.category === activeCategory) &&
       (!titleFilter || job.title === titleFilter) &&
       (!locationFilter || job.location === locationFilter) &&
-      (!query || job.title.toLowerCase().includes(query) || job.category.toLowerCase().includes(query)),
+      (!query ||
+        job.title.toLowerCase().includes(query) ||
+        job.category.toLowerCase().includes(query)),
   );
   const hasActiveFilters = Boolean(activeCategory || titleFilter || locationFilter || query);
 
@@ -234,7 +142,12 @@ export default function RecommendedJobs() {
     <section className="max-w-7xl mx-auto px-6 md:px-10 pt-8 md:pt-12 pb-20 md:pb-28">
       <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 max-w-[776px] mx-auto mb-10">
         <div className="relative flex items-center gap-2 w-[226px]">
-          <Briefcase size={18} className={titleFilter ? "text-[var(--color-primary)] shrink-0" : "text-[#767684] shrink-0"} />
+          <Briefcase
+            size={18}
+            className={
+              titleFilter ? "text-[var(--color-primary)] shrink-0" : "text-[#767684] shrink-0"
+            }
+          />
           <select
             value={titleFilter}
             onChange={(e) => selectTitle(e.target.value)}
@@ -253,12 +166,19 @@ export default function RecommendedJobs() {
         </div>
 
         <div className="relative flex items-center gap-2 w-[164px]">
-          <MapPin size={18} className={locationFilter ? "text-[var(--color-primary)] shrink-0" : "text-[#767684] shrink-0"} />
+          <MapPin
+            size={18}
+            className={
+              locationFilter ? "text-[var(--color-primary)] shrink-0" : "text-[#767684] shrink-0"
+            }
+          />
           <select
             value={locationFilter}
             onChange={(e) => selectLocation(e.target.value)}
             className={`w-full appearance-none bg-transparent font-[Arial] text-[20px] leading-[28px] tracking-[0px] pr-6 cursor-pointer focus:outline-none truncate ${
-              locationFilter ? "font-bold text-[var(--color-primary)]" : "font-normal text-[#767684]"
+              locationFilter
+                ? "font-bold text-[var(--color-primary)]"
+                : "font-normal text-[#767684]"
             }`}
           >
             <option value="">Any location</option>
@@ -271,16 +191,12 @@ export default function RecommendedJobs() {
           <ChevronDown size={16} className="text-[#7F7F7F] absolute right-0 pointer-events-none" />
         </div>
 
-        <div className="flex items-center gap-3 flex-1 min-w-[240px] max-w-[320px] h-[45px] rounded-full border border-[#7F7F7F52] px-5">
-          <Search size={18} className="text-[var(--color-ink)] shrink-0" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => updateSearch(e.target.value)}
-            placeholder="Search jobs"
-            className="w-full bg-transparent font-[Arial] text-[18px] outline-none placeholder:text-[var(--color-muted)]"
-          />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={updateSearch}
+          placeholder="Search jobs"
+          className="flex-1 min-w-[240px] max-w-[320px]"
+        />
 
         {hasActiveFilters && (
           <button
@@ -295,10 +211,10 @@ export default function RecommendedJobs() {
 
       <div className="flex items-start justify-between flex-wrap gap-6 mb-10">
         <div>
-          <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-2">
+          <h2 className="text-h1-tight align-middle text-[var(--color-primary)] mb-2">
             Recommended Jobs
           </h2>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+          <p className="text-p1 align-middle text-[var(--color-muted)]">
             Explore suggested job searches across our portfolio
           </p>
         </div>
@@ -306,7 +222,7 @@ export default function RecommendedJobs() {
           <button
             type="button"
             onClick={() => setActiveTab("latest")}
-            className={`rounded-xl px-6 py-3 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle transition-colors cursor-pointer ${
+            className={`rounded-xl px-6 py-3 text-p1 text-center align-middle transition-colors cursor-pointer ${
               activeTab === "latest"
                 ? "bg-[var(--color-primary)] text-white"
                 : "bg-[#FCF9F8] border border-[#C7C5D5] text-[var(--color-ink)]"
@@ -317,7 +233,7 @@ export default function RecommendedJobs() {
           <button
             type="button"
             onClick={() => setActiveTab("premium")}
-            className={`rounded-xl px-6 py-3 font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle transition-colors cursor-pointer ${
+            className={`rounded-xl px-6 py-3 text-p1 text-center align-middle transition-colors cursor-pointer ${
               activeTab === "premium"
                 ? "bg-[var(--color-primary)] text-white"
                 : "bg-[#FCF9F8] border border-[#C7C5D5] text-[var(--color-ink)]"
@@ -331,9 +247,7 @@ export default function RecommendedJobs() {
       <div className="grid md:grid-cols-[278.25px_1fr] gap-[32px] items-start">
         <aside className="w-full md:w-[278.25px] shrink-0 md:sticky md:top-0 border-[1.02px] border-[#C7C5D5] rounded-[4.1px]">
           <div className="px-6 py-6 border-b border-[#C7C5D5]">
-            <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)]">
-              Jobs Categories
-            </h3>
+            <h3 className="text-s1 uppercase text-[var(--color-primary)]">Jobs Categories</h3>
           </div>
           <ul>
             {CATEGORIES.map((category, i) => {
@@ -360,7 +274,9 @@ export default function RecommendedJobs() {
                     />
                     <span
                       className={`font-[Arial] text-[24px] leading-[32.9px] tracking-[0px] align-middle ${
-                        active ? "font-bold text-[var(--color-primary)]" : "font-normal text-[var(--color-ink)]"
+                        active
+                          ? "font-bold text-[var(--color-primary)]"
+                          : "font-normal text-[var(--color-ink)]"
                       }`}
                     >
                       {category.label}

@@ -2,11 +2,12 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
+import PageHero from "../../../components/PageHero";
+import { revealProps, staggerContainer } from "../../../lib/motion";
 import { newsFeed, newsletterTopics } from "../../../data/site";
 import Pagination from "../../portfolio/Pagination";
 import NewsFeedCard from "./NewsFeedCard";
-import NewsletterFilterSidebar from "./NewsletterFilterSidebar";
+import TopicFilterSidebar from "../../../components/TopicFilterSidebar";
 
 const PAGE_SIZE = 5;
 
@@ -44,34 +45,24 @@ export default function Newsletter() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <div className="px-6">
-          <motion.div
-            variants={staggerContainer}
-            {...revealProps}
-            className="text-center max-w-7xl mx-auto px-6 pt-12"
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4"
-            >
-              What’s New. What’s Next.
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto"
-            >
-              A curated newsletter featuring fresh insights, breakthrough ideas, and <br />important updates all in one place.
-            </motion.p>
-          </motion.div>
-        </div>
+        <PageHero
+          heading="What’s New. What’s Next."
+          description={
+            <>
+              A curated newsletter featuring fresh insights, breakthrough ideas, and <br />
+              important updates all in one place.
+            </>
+          }
+        />
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 flex flex-col md:flex-row gap-10 md:gap-[42px] items-start">
-          <NewsletterFilterSidebar
+          <TopicFilterSidebar
             search={search}
             onSearchChange={handleSearchChange}
             topics={newsletterTopics}
             selected={topic}
             onSelect={handleTopicChange}
+            stickyTopClassName="md:top-28"
           />
 
           <div className="flex-1 w-full min-w-0">

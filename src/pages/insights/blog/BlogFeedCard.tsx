@@ -28,18 +28,19 @@ export default function BlogFeedCard({
         <img
           src={`/images/blog/${image}`}
           alt={title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
       <div className="flex-1 flex flex-col">
-        <span className="inline-block self-start bg-[#02005D26] text-[var(--color-primary)] font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-4">
+        <span className="inline-block self-start bg-[#02005D26] text-[var(--color-primary)] text-p1 align-middle pt-[3.94px] pr-[13.5px] pb-[4.38px] pl-[13.5px] rounded-[2.25px] mb-4">
           {tag}
         </span>
-        <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-2">
+        <p className="text-eyebrow align-middle uppercase text-[var(--color-primary)] mb-2">
           {date}
         </p>
-        <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)] mb-6 group-hover:text-[var(--color-secondary)] transition-colors">
+        <h3 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-6 group-hover:text-[var(--color-secondary)] transition-colors">
           {title}
         </h3>
 

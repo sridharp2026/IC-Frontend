@@ -71,14 +71,15 @@ function StartupCard({ startup }: { startup: Startup }) {
         <img
           src={`/images/starting-up/${startup.logo}`}
           alt={startup.name}
+          loading="lazy"
           className="w-full h-full object-cover"
         />
       </div>
 
-      <h3 className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-1">
+      <h3 className="text-p1 text-center align-middle text-[var(--color-primary)] mb-1">
         {startup.name}
       </h3>
-      <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-4">
+      <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-4">
         {startup.tagline}
       </p>
 
@@ -94,7 +95,7 @@ function StartupCard({ startup }: { startup: Startup }) {
       </div>
 
       <div className="border-t border-[#C7C5D5] pt-6">
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[#464653]">
+        <p className="text-p1 text-center align-middle text-[#464653]">
           {startup.openPositions} Open Position{startup.openPositions === 1 ? "" : "s"}
         </p>
       </div>
@@ -105,10 +106,10 @@ function StartupCard({ startup }: { startup: Startup }) {
 export default function TopStartupsHiring() {
   return (
     <section className="max-w-7xl mx-auto border-t-[0.96px] border-[#C7C5D5] px-[23.06px] py-[57.66px]">
-      <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-2">
+      <h2 className="text-h1-tight align-middle text-[var(--color-primary)] mb-2">
         Top Startups Hiring
       </h2>
-      <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)] mb-10">
+      <p className="text-p1 align-middle text-[var(--color-muted)] mb-10">
         Join high-growth deep-tech ventures born out of IIT Madras.
       </p>
 

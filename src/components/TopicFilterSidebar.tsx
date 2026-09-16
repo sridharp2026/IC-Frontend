@@ -1,34 +1,39 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import SearchInput from "./SearchInput";
 
 /**
- * Left filter panel for the newsletter feed — matches `Aside - Sidebar.svg`:
- * a search box, then a bordered, collapsible "Topics" panel with a flat
- * single-select list (label left, radio dot right, no per-option counts).
+ * Left filter panel shared by the blog and newsletter feeds — matches
+ * `Aside - Sidebar.png`/`.svg`: a search box, then a bordered, collapsible
+ * "Topics" panel with a flat single-select list (label left, radio dot
+ * right, no per-option counts).
  */
-export default function NewsletterFilterSidebar({
+export default function TopicFilterSidebar({
   search,
   onSearchChange,
   topics,
   selected,
   onSelect,
+  stickyTopClassName = "md:top-10",
 }: {
   search: string;
   onSearchChange: (value: string) => void;
   topics: string[];
   selected: string;
   onSelect: (value: string) => void;
+  /** Tailwind sticky-offset class, since the blog and newsletter pages use different values. */
+  stickyTopClassName?: string;
 }) {
   const [open, setOpen] = useState(true);
 
   return (
-    <aside className="w-full md:w-[347px] shrink-0 md:sticky md:top-28">
-      <input
-        type="text"
+    <aside className={`w-full md:w-[347px] shrink-0 md:sticky ${stickyTopClassName}`}>
+      <SearchInput
         value={search}
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={onSearchChange}
         placeholder="Search here..."
-        className="w-full h-16 mb-9 rounded-[6px] border border-[#7F7F7F]/20 bg-[#FAFAFD] px-4 font-[Arial] text-[18px] text-[var(--color-ink)] placeholder:text-[var(--color-muted)] outline-none focus:border-[var(--color-primary)]/40"
+        variant="boxed"
+        className="mb-9"
       />
 
       <div className="border border-[#C7C5D5] rounded-[4px] px-5 py-6">
@@ -60,7 +65,7 @@ export default function NewsletterFilterSidebar({
                     className="flex items-center justify-between w-full text-left group"
                   >
                     <span
-                      className={`font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] ${
+                      className={`text-p1 ${
                         active ? "text-[var(--color-primary)]" : "text-[var(--color-ink)]"
                       }`}
                     >

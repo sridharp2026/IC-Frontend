@@ -39,7 +39,7 @@ export default function ProgramCard({
           <span className="w-20 flex-shrink-0 font-[Arial] text-[48px] font-black leading-[48px] tracking-[0px] align-middle text-[var(--color-primary)]">
             {number}
           </span>
-          <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)]">
+          <h3 className="text-s1 align-middle text-[var(--color-primary)]">
             {title.split("\n").map((line, i, lines) => (
               <span key={i}>
                 {line}
@@ -48,15 +48,14 @@ export default function ProgramCard({
             ))}
           </h3>
         </div>
-        <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-          {description}
-        </p>
+        <p className="text-p1 align-middle text-[var(--color-muted)]">{description}</p>
       </div>
 
       <div className="relative aspect-[397/181] overflow-hidden">
         <img
           src={`/images/programs/${image}`}
           alt={`${title.replace(/\n/g, " ")} photo`}
+          loading="lazy"
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
         />
         <div className="absolute inset-x-0 bottom-0 h-[57px] flex items-center justify-center bg-[var(--color-muted)] group-hover:bg-[var(--color-secondary)] transition-colors duration-300">

@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import InsightCard from "../../components/InsightCard";
 import PillBadge from "../../components/PillBadge";
 import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
@@ -19,13 +17,13 @@ export default function Insights() {
           <PillBadge text="Insights" />
           <motion.h2
             variants={fadeUp}
-            className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)]"
+            className="text-h1-tight align-middle text-[var(--color-primary)]"
           >
             Trends, Ideas, and Perspectives
           </motion.h2>
         </div>
         <motion.div variants={fadeUp}>
-          <CustomButton href="/insights" label="View Insights" />
+          <CustomButton href="/insights/newsletter" label="View Insights" />
         </motion.div>
       </motion.div>
 
@@ -41,6 +39,7 @@ export default function Insights() {
             date={post.date}
             title={post.title}
             image={post.image}
+            href={`/insights/newsletter/${post.slug}`}
           />
         ))}
       </motion.div>

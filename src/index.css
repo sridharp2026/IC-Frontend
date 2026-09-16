@@ -46,7 +46,7 @@ html {
   font-size: 24px;
   font-weight: 400;
   line-height: 32.9px;
-  letter-spacing: -1px;
+  letter-spacing: 0;
 }
 .text-p2 {
   font-size: 18px;
@@ -58,6 +58,36 @@ html {
   font-weight: 400;
   line-height: 16.9px;
   text-transform: uppercase;
+}
+
+/* Tighter-leading siblings of the scale above — same size/weight as their
+   namesake but a ~100% line-height, matching how these sizes are actually
+   used for headlines and eyebrow labels across the site. Kept separate from
+   .text-hero/.text-h1/.text-p2 rather than changed in place, since those are
+   already in use elsewhere with their looser (1.2x-ish) line-height. */
+.text-hero-tight {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+.text-h1-tight {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+.text-eyebrow {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.9px;
+  letter-spacing: 0;
+}
+.text-p2-tight {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
 }
 
 @media (max-width: 768px) {
@@ -121,7 +151,11 @@ html {
   pointer-events: none;
   z-index: 0;
   transform: translateY(-50%);
-  transition: left 0.35s ease, width 0.35s ease, height 0.35s ease, filter 0.35s ease;
+  transition:
+    left 0.35s ease,
+    width 0.35s ease,
+    height 0.35s ease,
+    filter 0.35s ease;
 }
 .btn__glow--left {
   left: -41px; /* cx -16, r 15 in Default.svg → left edge = cx - r */

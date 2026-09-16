@@ -13,7 +13,8 @@ export default function ComingSoon({ title }: { title: string }) {
           <PillBadge text={title} animate={false} />
           <h1 className="text-h1 text-[var(--color-primary)] mb-4">Coming soon</h1>
           <p className="text-p2 text-[var(--color-muted)] mb-8">
-            This page hasn&rsquo;t been designed yet — it&rsquo;s wired up and ready for its real content and layout.
+            This page hasn&rsquo;t been designed yet — it&rsquo;s wired up and ready for its real
+            content and layout.
           </p>
           <Link to="/" className="btn-primary inline-flex">
             <ArrowLeft size={16} /> Back to home

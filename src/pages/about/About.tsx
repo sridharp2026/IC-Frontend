@@ -53,11 +53,13 @@ export default function About() {
       <Navbar />
       <main className="flex-1 px-6">
         <div className="text-center max-w-7xl mx-auto pt-12">
-          <h1 className="font-[Arial] text-[64px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
-            Driven by Innovation, <br />Built for Impact
+          <h1 className="text-hero-tight text-center align-middle text-[var(--color-primary)] mb-4">
+            Driven by Innovation, <br />
+            Built for Impact
           </h1>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
-            IITM Incubation Cell gives ambitious founders access to the talent, sophisticated technologies, and investment needed at every stage of the journey.
+          <p className="text-p1 text-center align-middle text-[var(--color-muted)] mb-8 max-w-[1121px] mx-auto">
+            IITM Incubation Cell gives ambitious founders access to the talent, sophisticated
+            technologies, and investment needed at every stage of the journey.
           </p>
         </div>
 
@@ -80,15 +82,12 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-2 gap-x-[17px]">
-              <div className="rounded-[33px] bg-[#120A8F] text-white p-6 md:p-8 flex flex-col justify-center shadow-[0px_4.18px_6.27px_-4.18px_#0000001A,0px_10.45px_15.67px_-3.13px_#0000001A]">
+              <div className="rounded-[33px] bg-[var(--color-primary)] text-white p-6 md:p-8 flex flex-col justify-center shadow-[0px_4.18px_6.27px_-4.18px_#0000001A,0px_10.45px_15.67px_-3.13px_#0000001A]">
                 <p className="font-[Arial] text-[18px] font-normal leading-[25px] tracking-[0px] align-middle mb-4 max-w-[158px] text-white/80">
                   A growing portfolio of ambitious ventures.
                 </p>
-                <NumberFlow
-                  value="500+"
-                  className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase"
-                />
-                <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle capitalize text-white/70">
+                <NumberFlow value="500+" className="text-s1 align-middle uppercase" />
+                <p className="text-eyebrow align-middle capitalize text-white/70">
                   Startups Incubated
                 </p>
               </div>
@@ -98,11 +97,9 @@ export default function About() {
                 </p>
                 <NumberFlow
                   value="13+ YEARS"
-                  className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle uppercase text-[var(--color-primary)]"
+                  className="text-s1 align-middle uppercase text-[var(--color-primary)]"
                 />
-                <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] align-middle">
-                  Of Enabling Innovation
-                </p>
+                <p className="text-eyebrow align-middle">Of Enabling Innovation</p>
               </div>
             </div>
           </div>
@@ -113,51 +110,50 @@ export default function About() {
             src="/images/our-journey-bg.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-70"
           />
 
           <div className="relative text-center mb-16 md:mb-20">
             <PillBadge text="Our Journey" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)]">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)]">
               Milestones That Moved Us Forward
             </h2>
           </div>
 
           <div className="relative max-w-5xl mx-auto">
             <div
-              className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-primary)]/15 -translate-x-1/2"
+              className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-primary)]/15 -translate-x-1/2"
               aria-hidden="true"
             />
-            <div className="flex flex-col gap-16 md:gap-20">
+            <ol className="flex flex-col gap-12 md:gap-20 border-l-2 border-[var(--color-primary)]/15 pl-8 md:border-l-0 md:pl-0 md:max-h-[774px] md:overflow-y-auto md:pr-3">
               {journeyMilestones.map((milestone, i) => {
                 const isLeft = i % 2 === 0;
                 return (
-                  <div
+                  <li
                     key={milestone.year}
-                    className="relative grid grid-cols-2 gap-x-10 md:gap-x-16"
+                    className="relative md:grid md:grid-cols-2 md:gap-x-10 lg:gap-x-16"
                   >
                     <span
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[18px] h-[18px] rounded-full bg-[#02005D] border-[4.5px] border-[#F6F3F2]"
+                      className="absolute -left-[calc(2rem+9px)] top-2 md:left-1/2 md:top-1/2 md:-left-0 -translate-y-0 md:-translate-x-1/2 md:-translate-y-1/2 w-[18px] h-[18px] rounded-full bg-[#02005D] border-[4.5px] border-[#F6F3F2]"
                       aria-hidden="true"
                     />
                     <div
-                      className={
-                        isLeft
-                          ? "col-start-1 text-right pr-2"
-                          : "col-start-2 text-left pl-2"
-                      }
+                      className={`text-left ${
+                        isLeft ? "md:col-start-1 md:text-right md:pr-2" : "md:col-start-2 md:pl-2"
+                      }`}
                     >
                       <div className="font-[Arial] text-[44px] font-bold leading-[54px] tracking-[0px] align-middle text-[var(--color-secondary)] mb-1">
                         {milestone.year}
                       </div>
-                      <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+                      <p className="text-p1 align-middle text-[var(--color-muted)]">
                         {milestone.description}
                       </p>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -167,31 +163,30 @@ export default function About() {
               <img
                 src="/images/about-us.jpg"
                 alt="IITM Incubation Cell space"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div>
               <PillBadge text="About Us" animate={false} />
-              <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] align-middle text-[var(--color-primary)] mb-6">
+              <h2 className="text-h1-tight align-middle text-[var(--color-primary)] mb-6">
                 Where Ambition Finds Momentum
               </h2>
               <div className="space-y-4">
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]">
-                  Founded in 2013 within the IIT Madras Research Park in
-                  Chennai, the IIT Madras Incubation Cell (IITMIC) has been
-                  set up with an aim of converting innovative and disruptive
-                  technology ideas into successful startups. An initiative
-                  from IIT Madras&rsquo; research and entrepreneurial
-                  community, the IITMIC comprises students, faculty members,
-                  researchers, alumni as well as independent entrepreneurs.
+                <p className="text-p1 align-middle text-justify text-[var(--color-muted)]">
+                  Founded in 2013 within the IIT Madras Research Park in Chennai, the IIT Madras
+                  Incubation Cell (IITMIC) has been set up with an aim of converting innovative and
+                  disruptive technology ideas into successful startups. An initiative from IIT
+                  Madras&rsquo; research and entrepreneurial community, the IITMIC comprises
+                  students, faculty members, researchers, alumni as well as independent
+                  entrepreneurs.
                 </p>
-                <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-justify text-[var(--color-muted)]">
-                  Being a technology business incubator, the IITMIC offers
-                  mentorship, infrastructure, industrial connections and
-                  investment opportunities to the startups. With time, the
-                  IITMIC has grown into one of the crucial elements of one of
-                  India&rsquo;s most active deep-tech startup communities.
+                <p className="text-p1 align-middle text-justify text-[var(--color-muted)]">
+                  Being a technology business incubator, the IITMIC offers mentorship,
+                  infrastructure, industrial connections and investment opportunities to the
+                  startups. With time, the IITMIC has grown into one of the crucial elements of one
+                  of India&rsquo;s most active deep-tech startup communities.
                 </p>
               </div>
             </div>
@@ -209,12 +204,12 @@ export default function About() {
                   className="text-[var(--color-secondary)] transition-colors duration-300 group-hover:text-white"
                 />
               </div>
-              <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+              <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                 Our Vision
               </h3>
-              <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                To advance technology-led entrepreneurship and build ventures
-                that contribute to economic, societal and global progress.
+              <p className="text-p1 align-middle text-[var(--color-muted)]">
+                To advance technology-led entrepreneurship and build ventures that contribute to
+                economic, societal and global progress.
               </p>
             </motion.div>
 
@@ -229,13 +224,12 @@ export default function About() {
                   className="text-[var(--color-secondary)] transition-colors duration-300 group-hover:text-white"
                 />
               </div>
-              <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+              <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                 Our Mission
               </h3>
-              <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
-                To translate innovation and research into impactful
-                enterprises by connecting talent, technology, industry,
-                infrastructure and investment.
+              <p className="text-p1 align-middle text-[var(--color-muted)]">
+                To translate innovation and research into impactful enterprises by connecting
+                talent, technology, industry, infrastructure and investment.
               </p>
             </motion.div>
           </div>
@@ -246,24 +240,25 @@ export default function About() {
             src="/images/values-bg.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-70"
           />
 
           <div className="relative text-center mb-16">
             <PillBadge text="Values" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               Our Core Values
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
               The advantage of partnering with IITM Incubation Cell.
             </p>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-5">
+          <ul className="relative grid md:grid-cols-3 gap-5">
             {coreValues.map((value) => {
               const Icon = valueIcons[value.icon] ?? Lightbulb;
               return (
-                <motion.div
+                <motion.li
                   key={value.title}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
@@ -275,39 +270,40 @@ export default function About() {
                       className="text-[var(--color-primary)] transition-colors duration-300 group-hover:text-white"
                     />
                   </div>
-                  <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] uppercase mb-3">
+                  <h3 className="text-s1 align-middle text-[var(--color-primary)] uppercase mb-3">
                     {value.title}
                   </h3>
-                  <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] align-middle text-[var(--color-muted)]">
+                  <p className="text-p1 align-middle text-[var(--color-muted)]">
                     {value.description}
                   </p>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </section>
 
         <section className="max-w-7xl mx-auto pb-20 md:pb-28">
           <div className="text-center mb-10">
             <PillBadge text="Our Team" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               Meet Our Team
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
               The artistry and intelligence behind every project.
             </p>
           </div>
 
           <div className="flex justify-center mb-12">
-            <div className="inline-flex flex-wrap justify-center items-center gap-[19px] bg-white border border-gray-100 rounded-full px-[41px] py-2 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">
+            <div className="flex flex-col md:inline-flex md:flex-row md:flex-wrap justify-center items-center gap-[19px] w-full md:w-auto bg-white border border-gray-100 rounded-2xl md:rounded-full px-[41px] py-2 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">
               {teamTabs.map((tab) => (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => setActiveTeamTab(tab)}
+                  aria-pressed={activeTeamTab === tab}
                   className={`px-6 py-2.5 rounded-full font-[Arial] text-[24px] leading-[32.9px] tracking-[0px] transition-colors cursor-pointer ${
                     activeTeamTab === tab
-                      ? "font-bold bg-[var(--color-primary)] text-white"
+                      ? "w-full md:w-auto font-bold bg-[var(--color-primary)] text-white"
                       : "font-normal text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5"
                   }`}
                 >
@@ -318,9 +314,9 @@ export default function About() {
           </div>
 
           {activeMembers.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ul className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {activeMembers.map((member) => (
-                <motion.div
+                <motion.li
                   key={member.name}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
@@ -330,6 +326,7 @@ export default function About() {
                     <img
                       src={member.image}
                       alt={member.name}
+                      loading="lazy"
                       className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -337,13 +334,13 @@ export default function About() {
                     <h3 className="font-[Arial] text-[24px] font-bold leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-primary)] uppercase mb-1">
                       {member.name}
                     </h3>
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)]">
+                    <p className="text-p1 text-center align-middle text-[var(--color-muted)]">
                       {member.role}
                     </p>
                   </div>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
+            </ul>
           ) : (
             <p className="text-center text-p1 text-[var(--color-muted)] py-12">
               More {activeTeamTab} members coming soon.
@@ -354,21 +351,20 @@ export default function About() {
         <section className="max-w-7xl mx-auto pb-20 md:pb-28">
           <div className="text-center mb-14">
             <PillBadge text="Ecosystem" animate={false} />
-            <h2 className="font-[Arial] text-[44px] font-bold leading-[100%] tracking-[0px] text-center align-middle text-[var(--color-primary)] mb-4">
+            <h2 className="text-h1-tight text-center align-middle text-[var(--color-primary)] mb-4">
               A Multi-Sector Innovation Hub
             </h2>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-center align-middle text-[var(--color-muted)] max-w-[820px] mx-auto">
-              IITM has nurtured several specialized incubators and student
-              bodies dedicated to specific sectors and stages of the
-              entrepreneurial journey.
+            <p className="text-p1 text-center align-middle text-[var(--color-muted)] max-w-[820px] mx-auto">
+              IITM has nurtured several specialized incubators and student bodies dedicated to
+              specific sectors and stages of the entrepreneurial journey.
             </p>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-5">
             {ecosystemPartners.map((partner) => {
               const Icon = ecosystemIcons[partner.icon] ?? Globe;
               return (
-                <motion.div
+                <motion.li
                   key={partner.title}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25 }}
@@ -381,17 +377,17 @@ export default function About() {
                     />
                   </div>
                   <div>
-                    <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] align-middle text-[var(--color-primary)] mb-1">
+                    <h3 className="text-s1 align-middle text-[var(--color-primary)] mb-1">
                       {partner.title}
                     </h3>
-                    <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-justify align-middle text-[var(--color-muted)]">
+                    <p className="text-p1 text-justify align-middle text-[var(--color-muted)]">
                       {partner.description}
                     </p>
                   </div>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </section>
       </main>
       <Footer />

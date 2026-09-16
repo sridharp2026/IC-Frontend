@@ -17,12 +17,14 @@ const helpDescriptions: Record<string, string> = {
 };
 
 export default function HowWeHelp() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const [canHover, setCanHover] = useState(false);
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const [pinnedIdx, setPinnedIdx] = useState<number | null>(null);
+  const [canHover, setCanHover] = useState(
+    () => window.matchMedia("(hover: hover) and (pointer: fine)").matches,
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
-    setCanHover(mq.matches);
     const handleChange = (e: MediaQueryListEvent) => setCanHover(e.matches);
     mq.addEventListener("change", handleChange);
     return () => mq.removeEventListener("change", handleChange);
@@ -34,24 +36,21 @@ export default function HowWeHelp() {
         src="/images/how-we-can-help-bg.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         className="hidden md:block absolute inset-x-0 top-0 w-full h-auto opacity-80 pointer-events-none select-none"
       />
       <motion.div variants={staggerContainer} {...revealProps} className="relative max-w-[332px]">
         <PillBadge text="How We Can Help" />
-        <motion.h2
-          variants={fadeUp}
-          className="text-h1 text-[var(--color-primary)] mb-6"
-        >
+        <motion.h2 variants={fadeUp} className="text-h1 text-[var(--color-primary)] mb-6">
           Build What&rsquo;s Next, Together
         </motion.h2>
         <motion.p
           variants={fadeUp}
           className="text-[24px] font-normal leading-[32.9px] tracking-[0] text-justify text-[var(--color-muted)]"
         >
-          Whether you&rsquo;re building a breakthrough, backing the next
-          generation of technology companies, or looking to collaborate with
-          innovation at its source, there&rsquo;s a place for you in our
-          ecosystem.
+          Whether you&rsquo;re building a breakthrough, backing the next generation of technology
+          companies, or looking to collaborate with innovation at its source, there&rsquo;s a place
+          for you in our ecosystem.
         </motion.p>
       </motion.div>
 
@@ -61,21 +60,19 @@ export default function HowWeHelp() {
         className="relative border-b-[1.13px] border-[#E2E8F0]"
       >
         {helpAudiences.map((a, i) => {
-          const isOpen = openIdx === i;
+          const isOpen = pinnedIdx !== null ? pinnedIdx === i : canHover && hoverIdx === i;
           return (
             <motion.div
               key={a.title}
               variants={fadeUp}
-              onMouseEnter={() => canHover && setOpenIdx(i)}
-              onMouseLeave={() =>
-                canHover && setOpenIdx((cur) => (cur === i ? null : cur))
-              }
+              onMouseEnter={() => canHover && setHoverIdx(i)}
+              onMouseLeave={() => canHover && setHoverIdx((cur) => (cur === i ? null : cur))}
               className="bg-white border-t-[1.13px] border-l-[4.5px] border-[#E2E8F0]"
             >
               <button
                 type="button"
-                onClick={() => setOpenIdx(isOpen ? null : i)}
-                className={`w-full flex items-center gap-[30px] pt-9 pr-[18px] pl-[18px] text-left group transition-[padding-bottom] duration-300 ease-in-out ${
+                onClick={() => setPinnedIdx((cur) => (cur === i ? null : i))}
+                className={`w-full flex items-center gap-[30px] pt-9 pr-[18px] pl-[18px] text-left group cursor-pointer transition-[padding-bottom] duration-300 ease-in-out ${
                   isOpen ? "pb-4" : "pb-9"
                 }`}
               >

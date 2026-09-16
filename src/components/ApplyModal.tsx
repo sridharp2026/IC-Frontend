@@ -52,9 +52,8 @@ export default function ApplyModal({
   }
 
   const inputClass =
-    "w-full h-[48px] rounded-lg border border-[#D1D5DB] pt-[10px] pr-[12px] pb-[9px] pl-[12px] font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-[var(--color-ink)] placeholder:text-[#9CA3AF] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]";
-  const labelClass =
-    "block mb-2 font-[Arial] text-[18px] font-normal leading-[24px] tracking-[0px] text-[var(--color-ink)]";
+    "w-full h-[48px] rounded-lg border border-[#D1D5DB] pt-[10px] pr-[12px] pb-[9px] pl-[12px] text-p2-tight text-[var(--color-ink)] placeholder:text-[#9CA3AF] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]";
+  const labelClass = "block mb-2 text-p2-tight text-[var(--color-ink)]";
 
   return (
     <div
@@ -77,10 +76,8 @@ export default function ApplyModal({
           >
             <X size={22} />
           </button>
-          <h2 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)]">
-            Apply for {titleLine}
-          </h2>
-          <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
+          <h2 className="text-s1 uppercase text-[var(--color-primary)]">Apply for {titleLine}</h2>
+          <p className="text-p1 text-[var(--color-muted)]">
             Fill in your details to apply for this program.
           </p>
         </div>
@@ -91,18 +88,15 @@ export default function ApplyModal({
               <img
                 src={`/images/programs/${program.image}`}
                 alt={`${titleLine} photo`}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-[Arial] text-[18px] font-normal leading-[16.88px] tracking-[0px] uppercase text-[var(--color-secondary)] mb-1">
+            <p className="text-eyebrow uppercase text-[var(--color-secondary)] mb-1">
               {program.number} {program.category}
             </p>
-            <h3 className="font-[Arial] text-[24px] font-bold leading-[37.8px] tracking-[0px] uppercase text-[var(--color-primary)] mb-2">
-              {titleLine}
-            </h3>
-            <p className="font-[Arial] text-[24px] font-normal leading-[32.9px] tracking-[0px] text-[var(--color-muted)]">
-              {program.description}
-            </p>
+            <h3 className="text-s1 uppercase text-[var(--color-primary)] mb-2">{titleLine}</h3>
+            <p className="text-p1 text-[var(--color-muted)]">{program.description}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -110,7 +104,12 @@ export default function ApplyModal({
               <label className={labelClass}>
                 Full Name <span className="text-[var(--color-secondary)]">*</span>
               </label>
-              <input type="text" required placeholder="Enter your full name" className={inputClass} />
+              <input
+                type="text"
+                required
+                placeholder="Enter your full name"
+                className={inputClass}
+              />
             </div>
 
             <div>
@@ -143,7 +142,12 @@ export default function ApplyModal({
               <label className={labelClass}>
                 Institution / Organization <span className="text-[var(--color-secondary)]">*</span>
               </label>
-              <input type="text" required placeholder="Type your institution" className={inputClass} />
+              <input
+                type="text"
+                required
+                placeholder="Type your institution"
+                className={inputClass}
+              />
             </div>
 
             <div>
@@ -171,10 +175,7 @@ export default function ApplyModal({
               </p>
             </div>
 
-            <button
-              type="submit"
-              className="btn w-full justify-center"
-            >
+            <button type="submit" className="btn w-full justify-center">
               <span className="btn__glow btn__glow--left" aria-hidden="true" />
               <span className="btn__glow btn__glow--right" aria-hidden="true" />
               <span className="btn__text">Submit</span>
