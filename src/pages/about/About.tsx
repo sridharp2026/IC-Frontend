@@ -82,7 +82,7 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-2 gap-x-[17px]">
-              <div className="rounded-[33px] bg-[#120A8F] text-white p-6 md:p-8 flex flex-col justify-center shadow-[0px_4.18px_6.27px_-4.18px_#0000001A,0px_10.45px_15.67px_-3.13px_#0000001A]">
+              <div className="rounded-[33px] bg-[var(--color-primary)] text-white p-6 md:p-8 flex flex-col justify-center shadow-[0px_4.18px_6.27px_-4.18px_#0000001A,0px_10.45px_15.67px_-3.13px_#0000001A]">
                 <p className="font-[Arial] text-[18px] font-normal leading-[25px] tracking-[0px] align-middle mb-4 max-w-[158px] text-white/80">
                   A growing portfolio of ambitious ventures.
                 </p>
@@ -123,25 +123,25 @@ export default function About() {
 
           <div className="relative max-w-5xl mx-auto">
             <div
-              className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-primary)]/15 -translate-x-1/2"
+              className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-primary)]/15 -translate-x-1/2"
               aria-hidden="true"
             />
-            <div className="flex flex-col gap-16 md:gap-20">
+            <ol className="flex flex-col gap-12 md:gap-20 border-l-2 border-[var(--color-primary)]/15 pl-8 md:border-l-0 md:pl-0 md:max-h-[774px] md:overflow-y-auto md:pr-3">
               {journeyMilestones.map((milestone, i) => {
                 const isLeft = i % 2 === 0;
                 return (
-                  <div
+                  <li
                     key={milestone.year}
-                    className="relative grid grid-cols-2 gap-x-10 md:gap-x-16"
+                    className="relative md:grid md:grid-cols-2 md:gap-x-10 lg:gap-x-16"
                   >
                     <span
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[18px] h-[18px] rounded-full bg-[#02005D] border-[4.5px] border-[#F6F3F2]"
+                      className="absolute -left-[calc(2rem+9px)] top-2 md:left-1/2 md:top-1/2 md:-left-0 -translate-y-0 md:-translate-x-1/2 md:-translate-y-1/2 w-[18px] h-[18px] rounded-full bg-[#02005D] border-[4.5px] border-[#F6F3F2]"
                       aria-hidden="true"
                     />
                     <div
-                      className={
-                        isLeft ? "col-start-1 text-right pr-2" : "col-start-2 text-left pl-2"
-                      }
+                      className={`text-left ${
+                        isLeft ? "md:col-start-1 md:text-right md:pr-2" : "md:col-start-2 md:pl-2"
+                      }`}
                     >
                       <div className="font-[Arial] text-[44px] font-bold leading-[54px] tracking-[0px] align-middle text-[var(--color-secondary)] mb-1">
                         {milestone.year}
@@ -150,10 +150,10 @@ export default function About() {
                         {milestone.description}
                       </p>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -254,11 +254,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-5">
+          <ul className="relative grid md:grid-cols-3 gap-5">
             {coreValues.map((value) => {
               const Icon = valueIcons[value.icon] ?? Lightbulb;
               return (
-                <motion.div
+                <motion.li
                   key={value.title}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
@@ -276,10 +276,10 @@ export default function About() {
                   <p className="text-p1 align-middle text-[var(--color-muted)]">
                     {value.description}
                   </p>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </section>
 
         <section className="max-w-7xl mx-auto pb-20 md:pb-28">
@@ -294,15 +294,16 @@ export default function About() {
           </div>
 
           <div className="flex justify-center mb-12">
-            <div className="inline-flex flex-wrap justify-center items-center gap-[19px] bg-white border border-gray-100 rounded-full px-[41px] py-2 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">
+            <div className="flex flex-col md:inline-flex md:flex-row md:flex-wrap justify-center items-center gap-[19px] w-full md:w-auto bg-white border border-gray-100 rounded-2xl md:rounded-full px-[41px] py-2 shadow-[0px_12px_10px_0px_#6666661A,0px_0px_10px_0px_#6666661A]">
               {teamTabs.map((tab) => (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => setActiveTeamTab(tab)}
+                  aria-pressed={activeTeamTab === tab}
                   className={`px-6 py-2.5 rounded-full font-[Arial] text-[24px] leading-[32.9px] tracking-[0px] transition-colors cursor-pointer ${
                     activeTeamTab === tab
-                      ? "font-bold bg-[var(--color-primary)] text-white"
+                      ? "w-full md:w-auto font-bold bg-[var(--color-primary)] text-white"
                       : "font-normal text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5"
                   }`}
                 >
@@ -313,9 +314,9 @@ export default function About() {
           </div>
 
           {activeMembers.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ul className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {activeMembers.map((member) => (
-                <motion.div
+                <motion.li
                   key={member.name}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
@@ -337,9 +338,9 @@ export default function About() {
                       {member.role}
                     </p>
                   </div>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
+            </ul>
           ) : (
             <p className="text-center text-p1 text-[var(--color-muted)] py-12">
               More {activeTeamTab} members coming soon.
@@ -359,11 +360,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-5">
             {ecosystemPartners.map((partner) => {
               const Icon = ecosystemIcons[partner.icon] ?? Globe;
               return (
-                <motion.div
+                <motion.li
                   key={partner.title}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25 }}
@@ -383,10 +384,10 @@ export default function About() {
                       {partner.description}
                     </p>
                   </div>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </section>
       </main>
       <Footer />

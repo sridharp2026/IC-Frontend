@@ -17,7 +17,8 @@ const helpDescriptions: Record<string, string> = {
 };
 
 export default function HowWeHelp() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const [pinnedIdx, setPinnedIdx] = useState<number | null>(null);
   const [canHover, setCanHover] = useState(
     () => window.matchMedia("(hover: hover) and (pointer: fine)").matches,
   );
@@ -59,19 +60,19 @@ export default function HowWeHelp() {
         className="relative border-b-[1.13px] border-[#E2E8F0]"
       >
         {helpAudiences.map((a, i) => {
-          const isOpen = openIdx === i;
+          const isOpen = pinnedIdx !== null ? pinnedIdx === i : canHover && hoverIdx === i;
           return (
             <motion.div
               key={a.title}
               variants={fadeUp}
-              onMouseEnter={() => canHover && setOpenIdx(i)}
-              onMouseLeave={() => canHover && setOpenIdx((cur) => (cur === i ? null : cur))}
+              onMouseEnter={() => canHover && setHoverIdx(i)}
+              onMouseLeave={() => canHover && setHoverIdx((cur) => (cur === i ? null : cur))}
               className="bg-white border-t-[1.13px] border-l-[4.5px] border-[#E2E8F0]"
             >
               <button
                 type="button"
-                onClick={() => setOpenIdx(isOpen ? null : i)}
-                className={`w-full flex items-center gap-[30px] pt-9 pr-[18px] pl-[18px] text-left group transition-[padding-bottom] duration-300 ease-in-out ${
+                onClick={() => setPinnedIdx((cur) => (cur === i ? null : i))}
+                className={`w-full flex items-center gap-[30px] pt-9 pr-[18px] pl-[18px] text-left group cursor-pointer transition-[padding-bottom] duration-300 ease-in-out ${
                   isOpen ? "pb-4" : "pb-9"
                 }`}
               >

@@ -77,6 +77,29 @@ export const journeyMilestones = [
     year: "2016",
     description: "248 patent applications filed, the most among all IITs in India.",
   },
+  {
+    year: "2017",
+    description:
+      "IITM Incubation Cell wins 'National Award for emerging Technology Business Incubator' for 2016 from India's Department of Science & Technology.",
+  },
+  {
+    year: "2018",
+    description: "1st Investor Meet hosted by IITMIC for select Incubatee Startups.",
+  },
+  {
+    year: "2024",
+    description: "Launch of successful first suborbital test vehicle by our incubatee Agnikul Cosmos.",
+  },
+  {
+    year: "2025",
+    description:
+      "IITM Incubation Cell crossed 500 deep-tech startup incubations. 100+ startup Incubations achieved in FY25.",
+  },
+  {
+    year: "2026",
+    description:
+      "112 startup incubations achieved in FY26. Ather Energy became the first publicly listed company from the IITMIC portfolio.",
+  },
 ];
 
 // Cards for the About page's "Our Core Values" section — `icon` is a lucide-react
