@@ -1,8 +1,7 @@
 import { ArrowRight, type LucideIcon } from "lucide-react";
 
 /**
- * Reusable pill CTA button — visual style pixel-matched to Default.svg /
- * Hover.svg (public/). Label, icon, and label typography are all
+ * Reusable pill CTA button. Label, icon, and label typography are all
  * configurable per use:
  *   - `label` sets the button text.
  *   - `icon` picks which lucide-react icon renders after the label; pass
