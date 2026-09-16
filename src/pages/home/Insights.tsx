@@ -23,7 +23,7 @@ export default function Insights() {
           </motion.h2>
         </div>
         <motion.div variants={fadeUp}>
-          <CustomButton href="/insights" label="View Insights" />
+          <CustomButton href="/insights/newsletter" label="View Insights" />
         </motion.div>
       </motion.div>
 
@@ -39,6 +39,7 @@ export default function Insights() {
             date={post.date}
             title={post.title}
             image={post.image}
+            href={`/insights/newsletter/${post.slug}`}
           />
         ))}
       </motion.div>

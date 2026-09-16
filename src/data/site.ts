@@ -372,12 +372,14 @@ export const programs = [
 
 export const insights = [
   {
+    slug: "plenome-ashwin-ai-launch",
     tag: "Events",
     date: "JULY 7, 2026",
     title: "IIT Madras-incubated startup Plenome...",
     image: "insights-1.png",
   },
   {
+    slug: "galaxeye-successful-launch",
     tag: "Mission Drishti",
     date: "03 MAY 2026",
     title: "GalaxEye, on the successful launch...",

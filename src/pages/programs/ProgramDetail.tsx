@@ -38,7 +38,10 @@ export default function ProgramDetail() {
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
           <Breadcrumb
-            trail={[{ label: "Program", to: "/programs" }]}
+            trail={[
+              { label: "Home", to: "/" },
+              { label: "Program", to: "/programs" },
+            ]}
             current="Program Detail"
             backTo="/programs"
           />

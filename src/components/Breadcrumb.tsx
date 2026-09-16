@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 
-export type BreadcrumbItem = { label: string; to: string };
+export type BreadcrumbItem = { label: string; to?: string };
 
 /** Shared breadcrumb + back-button header for detail pages. The back button
  * uses history when there is any (so it returns to whatever filtered/paged
@@ -35,10 +35,14 @@ export default function Breadcrumb({
         className="flex items-center gap-2 text-p1 align-middle text-[var(--color-muted)]"
       >
         {trail.map((item) => (
-          <span key={item.to} className="flex items-center gap-2">
-            <Link to={item.to} className="hover:text-[var(--color-primary)]">
-              {item.label}
-            </Link>
+          <span key={item.label} className="flex items-center gap-2">
+            {item.to ? (
+              <Link to={item.to} className="hover:text-[var(--color-primary)]">
+                {item.label}
+              </Link>
+            ) : (
+              <span>{item.label}</span>
+            )}
             <ChevronRight size={18} />
           </span>
         ))}

@@ -31,7 +31,11 @@ export default function NewsletterDetail() {
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">
           <Breadcrumb
-            trail={[{ label: "Insight", to: "/insights" }]}
+            trail={[
+              { label: "Home", to: "/" },
+              { label: "Insight" },
+              { label: "Newsletter", to: "/insights/newsletter" },
+            ]}
             current="News Detail"
             backTo="/insights/newsletter"
           />

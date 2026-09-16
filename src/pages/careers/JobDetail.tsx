@@ -113,7 +113,10 @@ export default function JobDetail() {
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
           <Breadcrumb
-            trail={[{ label: "Careers", to: "/careers" }]}
+            trail={[
+              { label: "Home", to: "/" },
+              { label: "Careers", to: "/careers" },
+            ]}
             current="Job details"
             backTo="/careers"
           />
