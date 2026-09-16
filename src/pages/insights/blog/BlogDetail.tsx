@@ -140,6 +140,7 @@ export default function BlogDetail() {
               <img
                 src={`/images/blog/${detail?.bannerImage ?? item.image}`}
                 alt={item.title}
+                loading="lazy"
                 className="w-full rounded-[6px] mb-8"
               />
 

@@ -11,13 +11,13 @@ import {
   MapPin,
   Network,
   Rocket,
-  Search,
   Sprout,
   ActivitySquare,
   type LucideIcon,
 } from "lucide-react";
 import { fadeUp, revealProps, staggerGrid } from "../../lib/motion";
 import { ACCENT_CLASSES, JOBS, type Job } from "../../data/jobs";
+import SearchInput from "../../components/SearchInput";
 
 const CATEGORIES: { label: string; icon: LucideIcon }[] = [
   { label: "Electric Mobility", icon: CarFront },
@@ -191,16 +191,12 @@ export default function RecommendedJobs() {
           <ChevronDown size={16} className="text-[#7F7F7F] absolute right-0 pointer-events-none" />
         </div>
 
-        <div className="flex items-center gap-3 flex-1 min-w-[240px] max-w-[320px] h-[45px] rounded-full border border-[#7F7F7F52] px-5">
-          <Search size={18} className="text-[var(--color-ink)] shrink-0" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => updateSearch(e.target.value)}
-            placeholder="Search jobs"
-            className="w-full bg-transparent font-[Arial] text-[18px] outline-none placeholder:text-[var(--color-muted)]"
-          />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={updateSearch}
+          placeholder="Search jobs"
+          className="flex-1 min-w-[240px] max-w-[320px]"
+        />
 
         {hasActiveFilters && (
           <button

@@ -32,6 +32,7 @@ export default function InsightCard({
         <img
           src={`/images/insights/${image}`}
           alt={title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>

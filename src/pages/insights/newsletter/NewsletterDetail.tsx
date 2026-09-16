@@ -79,6 +79,7 @@ export default function NewsletterDetail() {
           <img
             src={`/images/news/${detail?.bannerImage ?? item.image}`}
             alt={item.title}
+            loading="lazy"
             className="w-full mx-auto mb-10"
           />
 
@@ -113,6 +114,7 @@ export default function NewsletterDetail() {
                   key={i}
                   src={`/images/news/${src}`}
                   alt=""
+                  loading="lazy"
                   className="w-full max-h-[165px] aspect-[16/9] object-cover rounded-lg"
                 />
               ))}

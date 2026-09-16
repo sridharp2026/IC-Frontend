@@ -53,6 +53,7 @@ export default function Footer() {
                 <img
                   src="/images/IITM-Incubation-Cell.png"
                   alt="IITM Incubation Cell"
+                  loading="lazy"
                   className="w-full h-full object-contain"
                 />
               </Link>

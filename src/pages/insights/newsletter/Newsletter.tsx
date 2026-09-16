@@ -6,7 +6,7 @@ import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
 import { newsFeed, newsletterTopics } from "../../../data/site";
 import Pagination from "../../portfolio/Pagination";
 import NewsFeedCard from "./NewsFeedCard";
-import NewsletterFilterSidebar from "./NewsletterFilterSidebar";
+import TopicFilterSidebar from "../../../components/TopicFilterSidebar";
 
 const PAGE_SIZE = 5;
 
@@ -67,12 +67,13 @@ export default function Newsletter() {
         </div>
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 flex flex-col md:flex-row gap-10 md:gap-[42px] items-start">
-          <NewsletterFilterSidebar
+          <TopicFilterSidebar
             search={search}
             onSearchChange={handleSearchChange}
             topics={newsletterTopics}
             selected={topic}
             onSelect={handleTopicChange}
+            stickyTopClassName="md:top-28"
           />
 
           <div className="flex-1 w-full min-w-0">

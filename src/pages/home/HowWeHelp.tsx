@@ -35,6 +35,7 @@ export default function HowWeHelp() {
         src="/images/how-we-can-help-bg.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         className="hidden md:block absolute inset-x-0 top-0 w-full h-auto opacity-80 pointer-events-none select-none"
       />
       <motion.div variants={staggerContainer} {...revealProps} className="relative max-w-[332px]">

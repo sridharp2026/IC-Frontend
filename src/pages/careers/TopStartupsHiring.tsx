@@ -71,6 +71,7 @@ function StartupCard({ startup }: { startup: Startup }) {
         <img
           src={`/images/starting-up/${startup.logo}`}
           alt={startup.name}
+          loading="lazy"
           className="w-full h-full object-cover"
         />
       </div>

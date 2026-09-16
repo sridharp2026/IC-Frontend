@@ -39,6 +39,7 @@ export default function Contact() {
             src="/images/contact-bg.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-10 -z-10"
           />
 

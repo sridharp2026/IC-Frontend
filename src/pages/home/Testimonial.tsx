@@ -31,6 +31,7 @@ export default function Testimonial() {
           <img
             src={testimonial.image}
             alt={testimonial.name}
+            loading="lazy"
             className="w-[370px] h-[350px] rounded-[32px] object-cover shadow-xl"
           />
         </motion.div>

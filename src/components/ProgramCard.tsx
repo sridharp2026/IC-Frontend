@@ -55,6 +55,7 @@ export default function ProgramCard({
         <img
           src={`/images/programs/${image}`}
           alt={`${title.replace(/\n/g, " ")} photo`}
+          loading="lazy"
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
         />
         <div className="absolute inset-x-0 bottom-0 h-[57px] flex items-center justify-center bg-[var(--color-muted)] group-hover:bg-[var(--color-secondary)] transition-colors duration-300">

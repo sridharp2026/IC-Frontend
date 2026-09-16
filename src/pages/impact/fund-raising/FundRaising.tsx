@@ -155,6 +155,7 @@ function SpotlightCard({
         <img
           src={spotlight.image}
           alt={spotlight.title}
+          loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <span

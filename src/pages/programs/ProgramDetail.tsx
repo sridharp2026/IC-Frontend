@@ -160,6 +160,7 @@ export default function ProgramDetail() {
                   <img
                     src={`/images/programs/${image}`}
                     alt={`${program.title.replace(/\n/g, " ")} gallery photo ${i + 1}`}
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
                   />
                 </div>

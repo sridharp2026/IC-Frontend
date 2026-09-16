@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ProgramCard from "../../components/ProgramCard";
 import Pagination from "../portfolio/Pagination";
+import SearchInput from "../../components/SearchInput";
 import { programs } from "../../data/site";
 import { revealProps, staggerGrid } from "../../lib/motion";
 
@@ -99,19 +99,16 @@ export default function Programs() {
               );
             })}
 
-            <div className="ml-auto flex items-center gap-[10px] w-[396px] rounded-[24px] border border-[#7F7F7F52] pt-[10px] pr-5 pb-[10px] pl-5">
-              <Search size={18} className="text-[var(--color-muted)] shrink-0" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setPage(1);
-                }}
-                placeholder="Search programs"
-                className="w-full bg-transparent text-sm outline-none placeholder:text-[var(--color-muted)]"
-              />
-            </div>
+            <SearchInput
+              value={query}
+              onChange={(value) => {
+                setQuery(value);
+                setPage(1);
+              }}
+              placeholder="Search programs"
+              variant="compact"
+              className="ml-auto w-[396px]"
+            />
           </div>
 
           {paged.length === 0 ? (

@@ -110,6 +110,7 @@ export default function About() {
             src="/images/our-journey-bg.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-70"
           />
 
@@ -162,6 +163,7 @@ export default function About() {
               <img
                 src="/images/about-us.jpg"
                 alt="IITM Incubation Cell space"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -238,6 +240,7 @@ export default function About() {
             src="/images/values-bg.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-70"
           />
 
@@ -322,6 +325,7 @@ export default function About() {
                     <img
                       src={member.image}
                       alt={member.name}
+                      loading="lazy"
                       className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

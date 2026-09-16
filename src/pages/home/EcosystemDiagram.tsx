@@ -36,6 +36,7 @@ export default function EcosystemDiagram() {
         <img
           src="/images/innovation-hub.svg"
           alt="Innovation ecosystem org chart: IITM connects to IITM Bioincubator, IITM Research Park, RTBI, and Healthcare Tech Innovation Centre"
+          loading="lazy"
           className="w-full h-auto"
         />
       </motion.div>

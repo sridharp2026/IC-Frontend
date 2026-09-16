@@ -6,7 +6,7 @@ import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
 import { blogFeed, blogTopics } from "../../../data/site";
 import Pagination from "../../portfolio/Pagination";
 import BlogFeedCard from "./BlogFeedCard";
-import BlogFilterSidebar from "./BlogFilterSidebar";
+import TopicFilterSidebar from "../../../components/TopicFilterSidebar";
 
 const PAGE_SIZE = 5;
 
@@ -71,7 +71,7 @@ export default function Blog() {
         </div>
 
         <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 flex flex-col md:flex-row gap-10 md:gap-[42px] items-start">
-          <BlogFilterSidebar
+          <TopicFilterSidebar
             search={search}
             onSearchChange={handleSearchChange}
             topics={blogTopics}

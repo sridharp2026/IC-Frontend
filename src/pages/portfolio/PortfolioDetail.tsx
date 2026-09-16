@@ -193,12 +193,14 @@ export default function PortfolioDetail() {
                             loop
                             autoPlay
                             playsInline
+                            preload="metadata"
                             className="w-full h-full object-cover"
                           />
                         ) : (
                           <img
                             src={`/images/portfolio/${detail.heroMedia}`}
                             alt={startup.name}
+                            loading="lazy"
                             className="w-full h-full object-cover"
                           />
                         )}
@@ -377,6 +379,7 @@ export default function PortfolioDetail() {
                       <img
                         src={`/images/portfolio/${related.media}`}
                         alt={related.name}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     )}

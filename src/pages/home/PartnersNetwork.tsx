@@ -124,6 +124,7 @@ export default function PartnersNetwork() {
                           src={`/images/partner/partner-${i + 1}.png`}
                           alt={name}
                           style={{ width: w, height: h }}
+                          loading="lazy"
                           className="object-contain"
                         />
                       </motion.div>

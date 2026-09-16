@@ -88,6 +88,7 @@ export default function ApplyModal({
               <img
                 src={`/images/programs/${program.image}`}
                 alt={`${titleLine} photo`}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>

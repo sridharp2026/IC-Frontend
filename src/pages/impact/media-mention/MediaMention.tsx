@@ -67,7 +67,12 @@ function ImageCell({
 }) {
   return (
     <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: aspect }}>
-      <img src={image.src} alt={image.alt ?? title} className="w-full h-full object-cover" />
+      <img
+        src={image.src}
+        alt={image.alt ?? title}
+        loading="lazy"
+        className="w-full h-full object-cover"
+      />
       {image.video && (
         <span className="absolute inset-0 flex items-center justify-center">
           <span className="w-9 h-9 rounded-full bg-[var(--color-secondary)] flex items-center justify-center shadow-md">
