@@ -88,7 +88,8 @@ export const journeyMilestones = [
   },
   {
     year: "2024",
-    description: "Launch of successful first suborbital test vehicle by our incubatee Agnikul Cosmos.",
+    description:
+      "Launch of successful first suborbital test vehicle by our incubatee Agnikul Cosmos.",
   },
   {
     year: "2025",
