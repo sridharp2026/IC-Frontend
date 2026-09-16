@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, Star } from "lucide-react";
-import { fadeUp, revealProps, staggerGrid } from "../../lib/motion";
+import { fadeUp, revealProps, staggerGrid } from "@/lib/motion";
 
 type Startup = {
   name: string;

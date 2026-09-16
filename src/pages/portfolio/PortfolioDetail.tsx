@@ -1,13 +1,14 @@
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import ImagePlaceholder from "../../components/ImagePlaceholder";
-import CustomButton from "../../components/CustomButton";
-import NotFoundState from "../../components/NotFoundState";
-import Breadcrumb from "../../components/Breadcrumb";
-import { portfolioStartups } from "../../data/site";
-import { portfolioDetails, type InfoRow } from "../../data/portfolioDetails";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import CustomButton from "@/components/CustomButton";
+import NotFoundState from "@/components/NotFoundState";
+import Breadcrumb from "@/components/Breadcrumb";
+import Seo from "@/components/Seo";
+import { portfolioStartups } from "@/data/site";
+import { portfolioDetails, type InfoRow } from "@/data/portfolioDetails";
 
 const FALLBACK_MILESTONE_DOT: Record<string, string> = {
   start: "bg-[var(--color-primary)]",
@@ -36,11 +37,18 @@ export default function PortfolioDetail() {
 
   if (!startup) {
     return (
-      <NotFoundState
-        heading="Company not found"
-        backTo="/portfolio"
-        backLabel="Back to Portfolio"
-      />
+      <>
+        <Seo
+          title="Company not found"
+          description="This portfolio company could not be found."
+          noIndex
+        />
+        <NotFoundState
+          heading="Company not found"
+          backTo="/portfolio"
+          backLabel="Back to Portfolio"
+        />
+      </>
     );
   }
 
@@ -53,6 +61,7 @@ export default function PortfolioDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={startup.name} description={detail?.tagline ?? startup.description} />
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">
@@ -328,10 +337,16 @@ export default function PortfolioDetail() {
 
                 <div className="rounded-[26px] border border-[#7F7F7F]/50 bg-white p-2">
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Play preview of ${related.name}`}
                     className="h-[268px] max-h-[268px] overflow-hidden rounded-[19px]"
                     onMouseEnter={playRelatedVideo}
                     onMouseLeave={pauseRelatedVideo}
                     onClick={playRelatedVideo}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") playRelatedVideo();
+                    }}
                   >
                     {/\.mp4$/i.test(related.media) ? (
                       <video

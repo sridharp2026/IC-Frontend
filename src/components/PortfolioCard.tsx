@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { fadeUp } from "../lib/motion";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Portfolio startup card — matches the design in

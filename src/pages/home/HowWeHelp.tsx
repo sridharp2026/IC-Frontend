@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { helpAudiences } from "../../data/site";
-import PillBadge from "../../components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { helpAudiences } from "@/data/site";
+import PillBadge from "@/components/PillBadge";
 
 const helpDescriptions: Record<string, string> = {
   Founders:

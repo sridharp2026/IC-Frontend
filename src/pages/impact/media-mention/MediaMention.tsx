@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Calendar, Play } from "lucide-react";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import CustomButton from "../../../components/CustomButton";
-import PageHero from "../../../components/PageHero";
-import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CustomButton from "@/components/CustomButton";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
 
 interface MediaMentionImage {
   src: string;
@@ -134,6 +135,10 @@ function MediaMentionCard({ category, date, title, description, images, href }: 
 export default function MediaMention() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Media Mentions"
+        description="News coverage, events, and visitor highlights from the IITM Incubation Cell."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

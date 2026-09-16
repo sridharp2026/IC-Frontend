@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import PortfolioCard from "../../components/PortfolioCard";
-import PageHero from "../../components/PageHero";
-import { portfolioStartups } from "../../data/site";
-import { revealProps, staggerContainer } from "../../lib/motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PortfolioCard from "@/components/PortfolioCard";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { portfolioStartups } from "@/data/site";
+import { revealProps, staggerContainer } from "@/lib/motion";
 import FilterSidebar, { type FilterOption } from "./FilterSidebar";
 
 const TOP_COMPANIES = "Top Companies";
@@ -115,6 +116,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Portfolio"
+        description="Explore the startups incubated by the IITM Incubation Cell, from deep-tech pioneers to publicly listed unicorns."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

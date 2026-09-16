@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import NotFoundState from "../../../components/NotFoundState";
-import Breadcrumb from "../../../components/Breadcrumb";
-import { newsFeed } from "../../../data/site";
-import { newsletterDetails } from "../../../data/newsletterDetails";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NotFoundState from "@/components/NotFoundState";
+import Breadcrumb from "@/components/Breadcrumb";
+import Seo from "@/components/Seo";
+import { newsFeed } from "@/data/site";
+import { newsletterDetails } from "@/data/newsletterDetails";
 
 export default function NewsletterDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -14,11 +15,18 @@ export default function NewsletterDetail() {
 
   if (!item) {
     return (
-      <NotFoundState
-        heading="Story not found"
-        backTo="/insights/newsletter"
-        backLabel="Back to Newsletter"
-      />
+      <>
+        <Seo
+          title="Story not found"
+          description="This newsletter story could not be found."
+          noIndex
+        />
+        <NotFoundState
+          heading="Story not found"
+          backTo="/insights/newsletter"
+          backLabel="Back to Newsletter"
+        />
+      </>
     );
   }
 
@@ -27,6 +35,7 @@ export default function NewsletterDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={headline} description={item.description} />
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">

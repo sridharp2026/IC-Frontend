@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import NumberFlow from "../../components/NumberFlow";
-import PillBadge from "../../components/PillBadge";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { scaleStats } from "../../data/site";
+import NumberFlow from "@/components/NumberFlow";
+import PillBadge from "@/components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { scaleStats } from "@/data/site";
 
 export default function ScaleStats() {
   return (

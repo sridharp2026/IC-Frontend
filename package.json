@@ -3,42 +3,72 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "sitemap": "node --experimental-strip-types scripts/generate-sitemap.mjs",
+    "build": "npm run sitemap && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "optimize-videos": "node scripts/optimize-videos.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.462.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "@tailwindcss/vite": "^4.0.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/ui": "^2.1.9",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
+    "ffmpeg-static": "^5.3.0",
     "globals": "^17.12.0",
+    "husky": "^9.1.7",
+    "jsdom": "^30.0.1",
+    "lint-staged": "^17.5.1",
     "prettier": "^3.9.6",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.70.0",
-    "vite": "^5.4.9"
+    "vite": "^5.4.9",
+    "vitest": "^2.1.9"
   },
   "description": "Built from the supplied design system export (`Colour.png` / `Font.png` / `Button.png`) and homepage mockup (`Home.png`) in `../source`. Stack: **React 18 + Vite + Tailwind CSS v4 + Framer Motion + React Router** — same animation system (page-load fades, scroll reveals, hover-lift, animated menus) as the Bodhan.AI rebuild.",
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,mjs,cjs,json,css,md}": [
+      "prettier --write"
+    ]
+  }
 }

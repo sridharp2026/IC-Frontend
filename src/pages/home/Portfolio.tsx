@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import PillBadge from "../../components/PillBadge";
-import PortfolioCard from "../../components/PortfolioCard";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { portfolioStartups } from "../../data/site";
-import CustomButton from "../../components/CustomButton";
+import PillBadge from "@/components/PillBadge";
+import PortfolioCard from "@/components/PortfolioCard";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { portfolioStartups } from "@/data/site";
+import CustomButton from "@/components/CustomButton";
 
 export default function Portfolio() {
   return (

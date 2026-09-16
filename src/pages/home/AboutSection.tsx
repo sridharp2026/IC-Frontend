@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { aboutParagraphs } from "../../data/site";
-import CustomButton from "../../components/CustomButton";
-import PillBadge from "../../components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { aboutParagraphs } from "@/data/site";
+import CustomButton from "@/components/CustomButton";
+import PillBadge from "@/components/PillBadge";
 
-export default function About() {
+export default function AboutSection() {
   return (
     <section
       id="about"

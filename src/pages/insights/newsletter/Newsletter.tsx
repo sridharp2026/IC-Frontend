@@ -1,13 +1,14 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import PageHero from "../../../components/PageHero";
-import { revealProps, staggerContainer } from "../../../lib/motion";
-import { newsFeed, newsletterTopics } from "../../../data/site";
-import Pagination from "../../portfolio/Pagination";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { revealProps, staggerContainer } from "@/lib/motion";
+import { newsFeed, newsletterTopics } from "@/data/site";
+import Pagination from "@/pages/portfolio/Pagination";
 import NewsFeedCard from "./NewsFeedCard";
-import TopicFilterSidebar from "../../../components/TopicFilterSidebar";
+import TopicFilterSidebar from "@/components/TopicFilterSidebar";
 
 const PAGE_SIZE = 5;
 
@@ -43,6 +44,10 @@ export default function Newsletter() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Newsletter"
+        description="Stay updated with the latest news, funding rounds, and career opportunities from the IITM Incubation Cell ecosystem."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

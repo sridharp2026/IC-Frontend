@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
-import CustomButton from "../../components/CustomButton";
-import NumberFlow from "../../components/NumberFlow";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { heroStats } from "../../data/site";
+import Navbar from "@/components/Navbar";
+import CustomButton from "@/components/CustomButton";
+import NumberFlow from "@/components/NumberFlow";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { heroStats } from "@/data/site";
 
 export default function Hero() {
   return (

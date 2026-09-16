@@ -1,4 +1,5 @@
 import { ArrowRight, type LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * Reusable pill CTA button. Label, icon, and label typography are all
@@ -45,19 +46,32 @@ export default function CustomButton({
   /** Optional click handler — e.g. `e.preventDefault()` to open a modal instead of navigating. */
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      className={`btn ${variant === "secondary" ? "btn--secondary" : ""} ${!Icon ? "btn--no-icon" : ""} ${className}`}
-      style={{ width }}
-    >
+  const buttonClassName = `btn ${variant === "secondary" ? "btn--secondary" : ""} ${!Icon ? "btn--no-icon" : ""} ${className}`;
+  const content = (
+    <>
       <span className="btn__glow btn__glow--left" aria-hidden="true" />
       <span className="btn__glow btn__glow--right" aria-hidden="true" />
       <span className="btn__text" style={{ fontSize, fontWeight }}>
         {label}
       </span>
       {Icon && <Icon size={18} strokeWidth={1.8} className="btn__icon" />}
+    </>
+  );
+
+  // Internal routes (e.g. "/programs") go through react-router's Link for
+  // client-side navigation; everything else (external URLs, "#" placeholders,
+  // mailto:/tel:) stays a plain anchor.
+  if (href.startsWith("/")) {
+    return (
+      <Link to={href} onClick={onClick} className={buttonClassName} style={{ width }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} onClick={onClick} className={buttonClassName} style={{ width }}>
+      {content}
     </a>
   );
 }

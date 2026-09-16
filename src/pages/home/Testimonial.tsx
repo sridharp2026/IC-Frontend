@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { testimonial } from "../../data/site";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { testimonial } from "@/data/site";
 
 export default function Testimonial() {
   return (

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../lib/motion";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Reusable section eyebrow pill — visual style comes entirely from

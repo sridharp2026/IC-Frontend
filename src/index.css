@@ -26,6 +26,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Tailwind's preflight leaves <button> at the browser default (arrow)
+   cursor instead of a pointer, unlike <a> — set it site-wide so every
+   button reads as clickable, without having to add cursor-pointer by hand
+   on each one. Individual `cursor-*` utility classes still win where used. */
+button:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
 /* Typographic scale from Font.png (Hero / H1 / S1 / P1 / P2 / P3) */
 .text-hero {
   font-size: 64px;

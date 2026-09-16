@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import InsightCard from "../../components/InsightCard";
-import PillBadge from "../../components/PillBadge";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { insights } from "../../data/site";
-import CustomButton from "../../components/CustomButton";
+import InsightCard from "@/components/InsightCard";
+import PillBadge from "@/components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { insights } from "@/data/site";
+import CustomButton from "@/components/CustomButton";
 
 export default function Insights() {
   return (

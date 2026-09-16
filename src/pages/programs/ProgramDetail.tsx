@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Briefcase, MapPin, Users, Clock, Tag, Landmark, Check } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import CustomButton from "../../components/CustomButton";
-import ApplyModal from "../../components/ApplyModal";
-import NotFoundState from "../../components/NotFoundState";
-import Breadcrumb from "../../components/Breadcrumb";
-import { programs } from "../../data/site";
-import { programDetails, type ProgramDetailRow } from "../../data/programDetails";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CustomButton from "@/components/CustomButton";
+import ApplyModal from "@/components/ApplyModal";
+import NotFoundState from "@/components/NotFoundState";
+import Breadcrumb from "@/components/Breadcrumb";
+import Seo from "@/components/Seo";
+import { programs } from "@/data/site";
+import { programDetails, type ProgramDetailRow } from "@/data/programDetails";
 
 const DETAIL_ICON: Record<ProgramDetailRow["icon"], typeof Briefcase> = {
   date: Briefcase,
@@ -28,12 +29,20 @@ export default function ProgramDetail() {
 
   if (!program || !detail) {
     return (
-      <NotFoundState heading="Program not found" backTo="/programs" backLabel="Back to Programs" />
+      <>
+        <Seo title="Program not found" description="This program could not be found." noIndex />
+        <NotFoundState
+          heading="Program not found"
+          backTo="/programs"
+          backLabel="Back to Programs"
+        />
+      </>
     );
   }
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={program.title.replace(/\n/g, " ")} description={program.description} />
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
@@ -71,7 +80,7 @@ export default function ProgramDetail() {
               <div className="rounded-xl overflow-hidden bg-[#F3F4F6] aspect-[642/321] max-w-[641px]">
                 <img
                   src={`/images/programs/${detail.heroImage}`}
-                  alt={`${program.title.replace(/\n/g, " ")} photo`}
+                  alt={program.title.replace(/\n/g, " ")}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -148,7 +157,7 @@ export default function ProgramDetail() {
                 <div key={i} className="group aspect-[4/3] rounded-lg overflow-hidden bg-[#F3F4F6]">
                   <img
                     src={`/images/programs/${image}`}
-                    alt={`${program.title.replace(/\n/g, " ")} gallery photo ${i + 1}`}
+                    alt={`${program.title.replace(/\n/g, " ")} gallery ${i + 1}`}
                     loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
                   />

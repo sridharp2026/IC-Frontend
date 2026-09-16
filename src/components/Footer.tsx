@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Instagram, Facebook, ArrowUpRight } from "lucide-react";
-import { fadeUp, revealProps } from "../lib/motion";
-import { navLinks } from "../data/site";
+import { CheckCircle2, Linkedin, Twitter, Instagram, Facebook, ArrowUpRight } from "lucide-react";
+import { fadeUp, revealProps } from "@/lib/motion";
+import { navLinks } from "@/data/site";
+import { useMockSubmit } from "@/lib/useMockSubmit";
 
 const socialIcons = { LinkedIn: Linkedin, Twitter, Instagram, Facebook };
 
@@ -16,6 +18,9 @@ const socialIcons = { LinkedIn: Linkedin, Twitter, Instagram, Facebook };
  * it pulls up over the section above by exactly the offset in the design.
  */
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const { status, submit, reset } = useMockSubmit(() => setEmail(""));
+
   return (
     <footer className="relative">
       <div className="mt-[65px] bg-[var(--color-primary)] text-white pt-20 pb-6 px-6 md:px-10">
@@ -28,23 +33,47 @@ export default function Footer() {
                 Discover new projects, funding, and career opportunities.
               </h2>
             </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-8 md:-mt-[145px] md:absolute md:top-0 md:right-0 bg-white rounded-[20px] border-[8px] border-[var(--color-primary)] p-9 flex flex-col gap-6 w-full max-w-[398px]"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Your Email"
-                className="h-16 bg-[#212121]/[0.08] rounded-lg px-4 text-p1 text-[var(--color-ink)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30"
-              />
-              <button type="submit" className="btn h-[65px] justify-center">
-                <span className="btn__glow btn__glow--left" aria-hidden="true" />
-                <span className="btn__glow btn__glow--right" aria-hidden="true" />
-                <span className="btn__text">Sign Up</span>
-                <ArrowUpRight size={18} strokeWidth={1.8} className="btn__icon" />
-              </button>
-            </form>
+            {status === "success" ? (
+              <div className="mt-8 md:-mt-[145px] md:absolute md:top-0 md:right-0 bg-white rounded-[20px] border-[8px] border-[var(--color-primary)] p-9 flex flex-col gap-4 w-full max-w-[398px] text-[var(--color-ink)]">
+                {/* self-center/text-center rather than items-center on the parent,
+                    which would also shrink the Back button off full width. */}
+                <CheckCircle2 size={36} className="self-center text-[var(--color-accent)]" />
+                <p className="text-p1 text-center">
+                  You're subscribed — thanks for following along.
+                </p>
+                <button type="button" onClick={reset} className="btn h-[65px] justify-center">
+                  <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                  <span className="btn__glow btn__glow--right" aria-hidden="true" />
+                  <span className="btn__text">Back</span>
+                </button>
+              </div>
+            ) : (
+              <form
+                onSubmit={submit}
+                className="mt-8 md:-mt-[145px] md:absolute md:top-0 md:right-0 bg-white rounded-[20px] border-[8px] border-[var(--color-primary)] p-9 flex flex-col gap-6 w-full max-w-[398px]"
+              >
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your Email"
+                  className="h-16 bg-[#212121]/[0.08] rounded-lg px-4 text-p1 text-[var(--color-ink)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="btn h-[65px] justify-center"
+                >
+                  <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                  <span className="btn__glow btn__glow--right" aria-hidden="true" />
+                  <span className="btn__text">
+                    {status === "submitting" ? "Signing up…" : "Sign Up"}
+                  </span>
+                  <ArrowUpRight size={18} strokeWidth={1.8} className="btn__icon" />
+                </button>
+              </form>
+            )}
           </motion.div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8">
@@ -97,14 +126,15 @@ export default function Footer() {
               {(["LinkedIn", "Twitter", "Instagram", "Facebook"] as const).map((label) => {
                 const Icon = socialIcons[label];
                 return (
-                  <a
+                  <button
                     key={label}
-                    href="#"
+                    type="button"
+                    disabled
                     aria-label={label}
-                    className="w-8 h-8 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                    className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     <Icon size={15} />
-                  </a>
+                  </button>
                 );
               })}
             </div>

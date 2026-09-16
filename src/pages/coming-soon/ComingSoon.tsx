@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import PillBadge from "../../components/PillBadge";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PillBadge from "@/components/PillBadge";
+import Seo from "@/components/Seo";
 
 export default function ComingSoon({ title }: { title: string }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={title} description={`The ${title} page is coming soon.`} noIndex />
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6">
         <div className="text-center max-w-lg">

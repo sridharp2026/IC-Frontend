@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUp } from "../lib/motion";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Insight / article card — matches the design in

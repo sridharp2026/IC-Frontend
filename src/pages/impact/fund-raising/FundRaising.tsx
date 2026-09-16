@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import PageHero from "../../../components/PageHero";
-import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
 
 type FundingStatus = "ongoing" | "closed";
 
@@ -176,6 +177,10 @@ function SpotlightCard({
 export default function FundRaising() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Fund Raising"
+        description="Track ongoing and closed funding rounds across the IITM Incubation Cell's portfolio startups."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

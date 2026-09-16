@@ -10,6 +10,7 @@ import {
   Users,
   Tag,
   Check,
+  CheckCircle2,
   Upload,
   ShieldCheck,
   Box,
@@ -18,13 +19,15 @@ import {
   ArrowUpRight,
   type LucideIcon,
 } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import NumberFlow from "../../components/NumberFlow";
-import NotFoundState from "../../components/NotFoundState";
-import Breadcrumb from "../../components/Breadcrumb";
-import { JOBS, ACCENT_CLASSES } from "../../data/jobs";
-import { jobDetails } from "../../data/jobDetails";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NumberFlow from "@/components/NumberFlow";
+import NotFoundState from "@/components/NotFoundState";
+import Breadcrumb from "@/components/Breadcrumb";
+import Seo from "@/components/Seo";
+import { JOBS, ACCENT_CLASSES } from "@/data/jobs";
+import { jobDetails } from "@/data/jobDetails";
+import { useMockSubmit } from "@/lib/useMockSubmit";
 
 const inputClass =
   "w-full h-[48px] rounded-lg border border-[#D1D5DB] pt-[10px] pr-[12px] pb-[9px] pl-[12px] text-p2-tight text-[var(--color-ink)] placeholder:text-[#9CA3AF] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]";
@@ -42,9 +45,22 @@ export default function JobDetail() {
   const [coverLetter, setCoverLetter] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { status, submit } = useMockSubmit(() => {
+    setFullName("");
+    setEmail("");
+    setPhone("");
+    setCoverLetter("");
+    setResumeFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  });
 
   if (!job || !detail) {
-    return <NotFoundState heading="Job not found" backTo="/careers" backLabel="Back to Careers" />;
+    return (
+      <>
+        <Seo title="Job not found" description="This job posting could not be found." noIndex />
+        <NotFoundState heading="Job not found" backTo="/careers" backLabel="Back to Careers" />
+      </>
+    );
   }
 
   const accent = ACCENT_CLASSES[job.accent];
@@ -97,18 +113,14 @@ export default function JobDetail() {
     setResumeFile(e.target.files?.[0] ?? null);
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setCoverLetter("");
-    setResumeFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  }
-
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title={job.title}
+        description={
+          detail.aboutParagraphs[0] ?? `${job.title} — ${job.category}, ${job.location}.`
+        }
+      />
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pb-28">
@@ -204,123 +216,154 @@ export default function JobDetail() {
             </div>
 
             <div className="rounded-2xl border border-[#E5E7EB] p-6 md:p-8 h-fit">
-              <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-1">
-                Apply Now
-              </h2>
-              <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-muted)] mb-6">
-                Fill in your details to apply for this position.
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className={labelClass}>
-                    Full Name <span className="text-[var(--color-secondary)]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Enter your full name"
-                    className={inputClass}
-                  />
+              {status === "success" ? (
+                <div className="flex flex-col items-center gap-4 text-center">
+                  <CheckCircle2 size={42} className="text-[var(--color-accent)]" />
+                  <h2 className="text-s1 uppercase text-[var(--color-primary)]">
+                    Application received
+                  </h2>
+                  <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-muted)]">
+                    Thanks for applying to {job.title} — we'll be in touch soon.
+                  </p>
                 </div>
+              ) : (
+                <>
+                  <h2 className="text-s1 align-middle uppercase text-[var(--color-primary)] mb-1">
+                    Apply Now
+                  </h2>
+                  <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-muted)] mb-6">
+                    Fill in your details to apply for this position.
+                  </p>
 
-                <div>
-                  <label className={labelClass}>
-                    Email Address <span className="text-[var(--color-secondary)]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className={inputClass}
-                  />
-                </div>
+                  <form onSubmit={submit} className="space-y-5">
+                    <div>
+                      <label htmlFor="job-full-name" className={labelClass}>
+                        Full Name <span className="text-[var(--color-secondary)]">*</span>
+                      </label>
+                      <input
+                        id="job-full-name"
+                        type="text"
+                        required
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="Enter your full name"
+                        className={inputClass}
+                      />
+                    </div>
 
-                <div>
-                  <label className={labelClass}>
-                    Phone Number <span className="text-[var(--color-secondary)]">*</span>
-                  </label>
-                  <div className="flex gap-3">
-                    <select className={`${inputClass} w-[96px]! shrink-0`} defaultValue="+91">
-                      <option>+91</option>
-                      <option>+1</option>
-                      <option>+44</option>
-                    </select>
-                    <input
-                      type="tel"
-                      required
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Enter your phone number"
-                      className={inputClass}
-                    />
-                  </div>
-                </div>
+                    <div>
+                      <label htmlFor="job-email" className={labelClass}>
+                        Email Address <span className="text-[var(--color-secondary)]">*</span>
+                      </label>
+                      <input
+                        id="job-email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        className={inputClass}
+                      />
+                    </div>
 
-                <div>
-                  <label className={labelClass}>
-                    Resume <span className="text-[var(--color-secondary)]">*</span>
-                  </label>
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => fileInputRef.current?.click()}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") fileInputRef.current?.click();
-                    }}
-                    className="cursor-pointer rounded-lg border-2 border-dashed border-[#D1D5DB] p-6 text-center hover:border-[var(--color-primary)] transition-colors"
-                  >
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      required
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                    <Upload size={22} className="mx-auto mb-2 text-[var(--color-muted)]" />
-                    {resumeFile ? (
-                      <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-ink)] truncate">
-                        {resumeFile.name}
-                      </p>
-                    ) : (
-                      <>
-                        <p className="font-[Arial] text-[16px] font-bold leading-[22px] tracking-[0px] text-[var(--color-ink)]">
-                          Upload Resume
-                        </p>
-                        <p className="font-[Arial] text-[14px] font-normal leading-[20px] tracking-[0px] text-[var(--color-muted)]">
-                          PDF, DOC or DOCX (Max 5MB)
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </div>
+                    <div>
+                      <label htmlFor="job-phone" className={labelClass}>
+                        Phone Number <span className="text-[var(--color-secondary)]">*</span>
+                      </label>
+                      <div className="flex gap-3">
+                        <select
+                          aria-label="Country code"
+                          className={`${inputClass} w-[96px]! shrink-0`}
+                          defaultValue="+91"
+                        >
+                          <option>+91</option>
+                          <option>+1</option>
+                          <option>+44</option>
+                        </select>
+                        <input
+                          id="job-phone"
+                          type="tel"
+                          required
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="Enter your phone number"
+                          className={inputClass}
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className={labelClass}>Cover Letter (Optional)</label>
-                  <textarea
-                    rows={3}
-                    value={coverLetter}
-                    onChange={(e) => setCoverLetter(e.target.value)}
-                    placeholder="Tell us why you're a great fit..."
-                    className={`${inputClass} h-auto resize-none`}
-                  />
-                </div>
+                    <div>
+                      <label htmlFor="job-resume" className={labelClass}>
+                        Resume <span className="text-[var(--color-secondary)]">*</span>
+                      </label>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => fileInputRef.current?.click()}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") fileInputRef.current?.click();
+                        }}
+                        className="cursor-pointer rounded-lg border-2 border-dashed border-[#D1D5DB] p-6 text-center hover:border-[var(--color-primary)] transition-colors"
+                      >
+                        <input
+                          id="job-resume"
+                          ref={fileInputRef}
+                          type="file"
+                          required
+                          accept=".pdf,.doc,.docx"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                        <Upload size={22} className="mx-auto mb-2 text-[var(--color-muted)]" />
+                        {resumeFile ? (
+                          <p className="font-[Arial] text-[16px] font-normal leading-[22px] tracking-[0px] text-[var(--color-ink)] truncate">
+                            {resumeFile.name}
+                          </p>
+                        ) : (
+                          <>
+                            <p className="font-[Arial] text-[16px] font-bold leading-[22px] tracking-[0px] text-[var(--color-ink)]">
+                              Upload Resume
+                            </p>
+                            <p className="font-[Arial] text-[14px] font-normal leading-[20px] tracking-[0px] text-[var(--color-muted)]">
+                              PDF, DOC or DOCX (Max 5MB)
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    </div>
 
-                <button type="submit" className="btn w-full justify-center">
-                  <span className="btn__glow btn__glow--left" aria-hidden="true" />
-                  <span className="btn__glow btn__glow--right" aria-hidden="true" />
-                  <span className="btn__text">Submit Application</span>
-                </button>
-                <p className="flex items-center justify-center gap-1.5 text-center font-[Arial] text-[14px] text-[var(--color-muted)]">
-                  <ShieldCheck size={14} />
-                  Your information is secure with us.
-                </p>
-              </form>
+                    <div>
+                      <label htmlFor="job-cover-letter" className={labelClass}>
+                        Cover Letter (Optional)
+                      </label>
+                      <textarea
+                        id="job-cover-letter"
+                        rows={3}
+                        value={coverLetter}
+                        onChange={(e) => setCoverLetter(e.target.value)}
+                        placeholder="Tell us why you're a great fit..."
+                        className={`${inputClass} h-auto resize-none`}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="btn w-full justify-center"
+                    >
+                      <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                      <span className="btn__glow btn__glow--right" aria-hidden="true" />
+                      <span className="btn__text">
+                        {status === "submitting" ? "Submitting…" : "Submit Application"}
+                      </span>
+                    </button>
+                    <p className="flex items-center justify-center gap-1.5 text-center font-[Arial] text-[14px] text-[var(--color-muted)]">
+                      <ShieldCheck size={14} />
+                      Your information is secure with us.
+                    </p>
+                  </form>
+                </>
+              )}
             </div>
           </div>
 
@@ -374,13 +417,14 @@ export default function JobDetail() {
                           {similarJob.type}
                         </span>
                       </div>
-                      <a
-                        href="#"
+                      <button
+                        type="button"
+                        disabled
                         aria-label={`View details for ${similarJob.title}`}
-                        className="shrink-0 w-11 h-[26px] rounded-full border border-[var(--color-secondary)] flex items-center justify-center text-[var(--color-secondary)] cursor-pointer transition-colors duration-200 hover:bg-[var(--color-secondary)] hover:text-white"
+                        className="shrink-0 w-11 h-[26px] rounded-full border border-[var(--color-secondary)] flex items-center justify-center text-[var(--color-secondary)] disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         <ArrowUpRight width={17} height={15} />
-                      </a>
+                      </button>
                     </div>
                   </motion.div>
                 );

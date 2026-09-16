@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Brain, Satellite, Zap, Leaf, HeartPulse, Bot, Cpu, Sprout } from "lucide-react";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { disciplines } from "../../data/site";
-import CustomButton from "../../components/CustomButton";
-import PillBadge from "../../components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { disciplines } from "@/data/site";
+import CustomButton from "@/components/CustomButton";
+import PillBadge from "@/components/PillBadge";
 
 const disciplineIcons: Record<string, typeof Brain> = {
   Brain,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Twitter, Instagram, Facebook, Linkedin } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { megaNavLinks, megaMenuContact } from "../data/site";
+import { megaNavLinks, megaMenuContact } from "@/data/site";
 import ImagePlaceholder from "./ImagePlaceholder";
 import CustomButton from "./CustomButton";
 
@@ -88,7 +88,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             width="137px"
             icon={false}
           />
-          <CustomButton label="Apply Now" />
+          <CustomButton href="/apply" label="Apply Now" />
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -229,14 +229,15 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
                   </a>
                   <div className="flex items-center gap-3 pt-1">
                     {socialIcons.map(({ label, Icon }) => (
-                      <a
+                      <button
                         key={label}
-                        href="#"
+                        type="button"
+                        disabled
                         aria-label={label}
-                        className="w-8 h-8 rounded-md bg-gray-100 hover:bg-[var(--color-surface)] text-gray-500 hover:text-[var(--color-primary)] flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-md bg-gray-100 text-gray-500 flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         <Icon size={15} />
-                      </a>
+                      </button>
                     ))}
                   </div>
                   <ImagePlaceholder
@@ -253,7 +254,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
                     icon={false}
                     className="justify-center"
                   />
-                  <CustomButton className="justify-center" />
+                  <CustomButton href="/apply" className="justify-center" />
                 </div>
               </div>
             </div>

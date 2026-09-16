@@ -1,13 +1,14 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import ProgramCard from "../../components/ProgramCard";
-import Pagination from "../portfolio/Pagination";
-import SearchInput from "../../components/SearchInput";
-import PageHero from "../../components/PageHero";
-import { programs } from "../../data/site";
-import { revealProps, staggerGrid } from "../../lib/motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ProgramCard from "@/components/ProgramCard";
+import Pagination from "@/pages/portfolio/Pagination";
+import SearchInput from "@/components/SearchInput";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { programs } from "@/data/site";
+import { revealProps, staggerGrid } from "@/lib/motion";
 
 const ALL = "All Projects";
 const ONGOING = "Ongoing";
@@ -66,6 +67,10 @@ export default function Programs() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Programs"
+        description="Accelerators, fellowships, and startup programs run by the IITM Incubation Cell."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

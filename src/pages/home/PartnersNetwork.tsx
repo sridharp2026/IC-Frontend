@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { fadeUp, revealProps, staggerContainer, staggerGrid } from "../../lib/motion";
-import { partnerTabs, keyInvestors } from "../../data/site";
-import PillBadge from "../../components/PillBadge";
+import { fadeUp, revealProps, staggerContainer, staggerGrid } from "@/lib/motion";
+import { partnerTabs, keyInvestors } from "@/data/site";
+import PillBadge from "@/components/PillBadge";
 
 // Each partner logo's footprint (px), measured from the reference design
 // (src/pages/home/PartnersNetwork.svg) — every logo was individually sized

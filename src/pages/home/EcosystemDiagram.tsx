@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import PillBadge from "../../components/PillBadge";
-import CustomButton from "../../components/CustomButton";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import PillBadge from "@/components/PillBadge";
+import CustomButton from "@/components/CustomButton";
 
 export default function EcosystemDiagram() {
   return (

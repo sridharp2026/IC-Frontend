@@ -15,9 +15,9 @@ import {
   ActivitySquare,
   type LucideIcon,
 } from "lucide-react";
-import { fadeUp, revealProps, staggerGrid } from "../../lib/motion";
-import { ACCENT_CLASSES, JOBS, type Job } from "../../data/jobs";
-import SearchInput from "../../components/SearchInput";
+import { fadeUp, revealProps, staggerGrid } from "@/lib/motion";
+import { ACCENT_CLASSES, JOBS, type Job } from "@/data/jobs";
+import SearchInput from "@/components/SearchInput";
 
 const CATEGORIES: { label: string; icon: LucideIcon }[] = [
   { label: "Electric Mobility", icon: CarFront },

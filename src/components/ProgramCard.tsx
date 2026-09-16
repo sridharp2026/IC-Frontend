@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUp } from "../lib/motion";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Program / initiative card — matches the design in
@@ -54,7 +54,7 @@ export default function ProgramCard({
       <div className="relative aspect-[397/181] overflow-hidden">
         <img
           src={`/images/programs/${image}`}
-          alt={`${title.replace(/\n/g, " ")} photo`}
+          alt={title.replace(/\n/g, " ")}
           loading="lazy"
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
         />

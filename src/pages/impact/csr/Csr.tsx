@@ -13,15 +13,20 @@ import {
   History,
   Check,
 } from "lucide-react";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import CustomButton from "../../../components/CustomButton";
-import PageHero from "../../../components/PageHero";
-import { fadeUp, revealProps, staggerContainer } from "../../../lib/motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CustomButton from "@/components/CustomButton";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
 
 export default function Csr() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Corporate Social Responsibility"
+        description="Empowering innovation, nurturing startups, and creating impact for society through the IITM Incubation Cell's CSR initiatives."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero
@@ -274,16 +279,15 @@ export default function Csr() {
                     E-prospectus: PDF Link
                     <ExternalLink size={16} />
                   </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-p1 align-middle text-[#CD0222] hover:underline w-fit"
+                  <button
+                    type="button"
+                    disabled
+                    className="inline-flex items-center gap-2 text-p1 align-middle text-[#CD0222] w-fit disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     <History size={18} />
                     Latest update on IITM Incubators: link
                     <ExternalLink size={16} />
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             </div>

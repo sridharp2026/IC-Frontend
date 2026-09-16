@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Facebook, Linkedin, X, Youtube } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import { fadeUp, staggerContainer, revealProps } from "../../lib/motion";
-import { megaMenuContact } from "../../data/site";
+import { ArrowRight, CheckCircle2, Facebook, Linkedin, X, Youtube } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
+import { fadeUp, staggerContainer, revealProps } from "@/lib/motion";
+import { megaMenuContact } from "@/data/site";
+import { useMockSubmit } from "@/lib/useMockSubmit";
 
 const socialLinks = [
   { label: "LinkedIn", icon: Linkedin },
@@ -20,14 +22,16 @@ const labelClass =
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setForm({ name: "", email: "", subject: "", message: "" });
-  }
+  const { status, submit, reset } = useMockSubmit(() =>
+    setForm({ name: "", email: "", subject: "", message: "" }),
+  );
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Contact Us"
+        description="Get in touch with the IITM Incubation Cell — visit us at IIT Madras Research Park, Chennai, or reach out by phone or email."
+      />
       <Navbar />
       <main className="flex-1 px-6">
         <motion.section
@@ -58,67 +62,97 @@ export default function Contact() {
           </motion.p>
 
           <div className="grid gap-[73px] md:grid-cols-[1fr_435px] items-start">
-            <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
+            {status === "success" ? (
+              // Plain div, not motion.div: this mounts well after the section's
+              // whileInView reveal has already fired (viewport: { once: true }),
+              // so it would inherit a permanently "hidden" variant state and
+              // never become visible if it used the shared fadeUp variants.
+              <div className="flex flex-col items-center gap-4 rounded-2xl border border-[#F3F4F6] bg-[#FAFAFB] p-8 text-center">
+                <CheckCircle2 size={42} className="text-[var(--color-accent)]" />
+                <h2 className="text-s1 uppercase text-[var(--color-primary)]">Message received</h2>
+                <p className="text-p1 text-[var(--color-muted)]">
+                  Thanks for reaching out — we'll get back to you soon.
+                </p>
+                <button type="button" onClick={reset} className="btn">
+                  <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                  <span className="btn__glow btn__glow--right" aria-hidden="true" />
+                  <span className="btn__text">Send another message</span>
+                </button>
+              </div>
+            ) : (
+              // Plain form, not motion.form: same reason as the success panel
+              // above — this remounts every time "Send another message" is
+              // clicked, well after the section's one-time whileInView reveal
+              // has fired, so it would come back stuck at the fadeUp variants'
+              // hidden state (opacity: 0) instead of showing.
+              <form onSubmit={submit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="contact-name" className={labelClass}>
+                      Your Name <span className="text-[var(--color-secondary)]">*</span>
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className={labelClass}>
+                      Email Address <span className="text-[var(--color-secondary)]">*</span>
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className={labelClass}>
-                    Your Name <span className="text-[var(--color-secondary)]">*</span>
+                  <label htmlFor="contact-subject" className={labelClass}>
+                    Subject <span className="text-[var(--color-secondary)]">*</span>
                   </label>
                   <input
+                    id="contact-subject"
                     type="text"
                     required
-                    value={form.name}
-                    onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                    value={form.subject}
+                    onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
                     className={inputClass}
                   />
                 </div>
+
                 <div>
-                  <label className={labelClass}>
-                    Email Address <span className="text-[var(--color-secondary)]">*</span>
+                  <label htmlFor="contact-message" className={labelClass}>
+                    Your Message <span className="text-[var(--color-secondary)]">*</span>
                   </label>
-                  <input
-                    type="email"
+                  <textarea
+                    id="contact-message"
                     required
-                    value={form.email}
-                    onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                    className={inputClass}
+                    rows={6}
+                    value={form.message}
+                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                    className={`${inputClass} h-auto py-3 resize-none`}
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className={labelClass}>
-                  Subject <span className="text-[var(--color-secondary)]">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={form.subject}
-                  onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
-                  className={inputClass}
-                />
-              </div>
-
-              <div>
-                <label className={labelClass}>
-                  Your Message <span className="text-[var(--color-secondary)]">*</span>
-                </label>
-                <textarea
-                  required
-                  rows={6}
-                  value={form.message}
-                  onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                  className={`${inputClass} h-auto py-3 resize-none`}
-                />
-              </div>
-
-              <button type="submit" className="btn">
-                <span className="btn__glow btn__glow--left" aria-hidden="true" />
-                <span className="btn__glow btn__glow--right" aria-hidden="true" />
-                <span className="btn__text">Send Now</span>
-                <ArrowRight size={18} strokeWidth={1.8} className="btn__icon" />
-              </button>
-            </motion.form>
+                <button type="submit" disabled={status === "submitting"} className="btn">
+                  <span className="btn__glow btn__glow--left" aria-hidden="true" />
+                  <span className="btn__glow btn__glow--right" aria-hidden="true" />
+                  <span className="btn__text">
+                    {status === "submitting" ? "Sending…" : "Send Now"}
+                  </span>
+                  <ArrowRight size={18} strokeWidth={1.8} className="btn__icon" />
+                </button>
+              </form>
+            )}
 
             <motion.aside
               variants={fadeUp}
@@ -154,14 +188,15 @@ export default function Contact() {
                 <h3 className="text-s1 align-middle uppercase mb-4">Stay Connected</h3>
                 <div className="flex items-center gap-3">
                   {socialLinks.map(({ label, icon: Icon }) => (
-                    <a
+                    <button
                       key={label}
-                      href="#"
+                      type="button"
+                      disabled
                       aria-label={label}
-                      className="w-10 h-10 rounded-full bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] flex items-center justify-center transition-colors"
+                      className="w-10 h-10 rounded-full bg-[var(--color-secondary)] flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       <Icon size={18} className="text-white" />
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>

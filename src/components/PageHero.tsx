@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { fadeUp, revealProps, staggerContainer } from "../lib/motion";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
 
 /** Shared centered hero intro (heading + subtitle) used at the top of every
  * list page (Careers, Programs, Portfolio, Blog, Newsletter, Impact pages). */

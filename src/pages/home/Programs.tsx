@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import PillBadge from "../../components/PillBadge";
-import ProgramCard from "../../components/ProgramCard";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { programs } from "../../data/site";
-import CustomButton from "../../components/CustomButton";
+import PillBadge from "@/components/PillBadge";
+import ProgramCard from "@/components/ProgramCard";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { programs } from "@/data/site";
+import CustomButton from "@/components/CustomButton";
 
 export default function Programs() {
   return (

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Zap, Target, Maximize2, Globe2 } from "lucide-react";
-import { fadeUp, revealProps, staggerContainer } from "../../lib/motion";
-import { corePillars } from "../../data/site";
-import PillBadge from "../../components/PillBadge";
+import { fadeUp, revealProps, staggerContainer } from "@/lib/motion";
+import { corePillars } from "@/data/site";
+import PillBadge from "@/components/PillBadge";
 
 const pillarIcons: Record<string, typeof Zap> = {
   Zap,

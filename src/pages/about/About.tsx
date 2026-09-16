@@ -14,17 +14,18 @@ import {
   Cpu,
   Presentation,
 } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import NumberFlow from "../../components/NumberFlow";
-import PillBadge from "../../components/PillBadge";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NumberFlow from "@/components/NumberFlow";
+import PillBadge from "@/components/PillBadge";
+import Seo from "@/components/Seo";
 import {
   journeyMilestones,
   coreValues,
   teamTabs,
   teamMembers,
   ecosystemPartners,
-} from "../../data/site";
+} from "@/data/site";
 
 const valueIcons: Record<string, typeof Lightbulb> = {
   Lightbulb,
@@ -50,6 +51,10 @@ export default function About() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="About Us"
+        description="IITM Incubation Cell gives ambitious founders access to the talent, sophisticated technologies, and investment needed at every stage of the journey."
+      />
       <Navbar />
       <main className="flex-1 px-6">
         <div className="text-center max-w-7xl mx-auto pt-12">

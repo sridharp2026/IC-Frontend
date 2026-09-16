@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../../../lib/motion";
-import CustomButton from "../../../components/CustomButton";
+import { fadeUp } from "@/lib/motion";
+import CustomButton from "@/components/CustomButton";
 
 /**
  * Blog feed row — matches `Blog Feed.svg`: a landscape image tile, a

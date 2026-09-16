@@ -1,13 +1,14 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import PageHero from "../../../components/PageHero";
-import { revealProps, staggerContainer } from "../../../lib/motion";
-import { blogFeed, blogTopics } from "../../../data/site";
-import Pagination from "../../portfolio/Pagination";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { revealProps, staggerContainer } from "@/lib/motion";
+import { blogFeed, blogTopics } from "@/data/site";
+import Pagination from "@/pages/portfolio/Pagination";
 import BlogFeedCard from "./BlogFeedCard";
-import TopicFilterSidebar from "../../../components/TopicFilterSidebar";
+import TopicFilterSidebar from "@/components/TopicFilterSidebar";
 
 const PAGE_SIZE = 5;
 
@@ -42,6 +43,10 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Blog"
+        description="Insights, trends, and stories from across the IITM Incubation Cell startup ecosystem."
+      />
       <Navbar />
       <main className="flex-1">
         <PageHero

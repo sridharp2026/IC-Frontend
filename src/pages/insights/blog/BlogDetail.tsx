@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Eye } from "lucide-react";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import NumberFlow from "../../../components/NumberFlow";
-import NotFoundState from "../../../components/NotFoundState";
-import Breadcrumb from "../../../components/Breadcrumb";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NumberFlow from "@/components/NumberFlow";
+import NotFoundState from "@/components/NotFoundState";
+import Breadcrumb from "@/components/Breadcrumb";
+import Seo from "@/components/Seo";
 import RecentBlogCard from "./RecentBlogCard";
-import { blogFeed } from "../../../data/site";
-import { blogDetails } from "../../../data/blogDetails";
+import { blogFeed } from "@/data/site";
+import { blogDetails } from "@/data/blogDetails";
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -45,7 +46,10 @@ export default function BlogDetail() {
 
   if (!item) {
     return (
-      <NotFoundState heading="Post not found" backTo="/insights/blog" backLabel="Back to Blog" />
+      <>
+        <Seo title="Post not found" description="This blog post could not be found." noIndex />
+        <NotFoundState heading="Post not found" backTo="/insights/blog" backLabel="Back to Blog" />
+      </>
     );
   }
 
@@ -53,6 +57,7 @@ export default function BlogDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title={detail?.headline ?? item.title} description={detail?.intro ?? item.tag} />
       <Navbar />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20">

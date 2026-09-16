@@ -30,7 +30,7 @@ export default function FilterSidebar({
   groups: FilterGroupData[];
 }) {
   return (
-    <aside className="w-full md:w-[379px] shrink-0 md:sticky md:top-28 border border-[#F1F1F1] px-5 py-4">
+    <aside className="w-full md:w-[379px] shrink-0 md:sticky md:top-0 border border-[#F1F1F1] px-5 py-4">
       <div className="pb-2">
         <RadioOptions {...topOptions} allowDeselect />
       </div>
